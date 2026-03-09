@@ -1,0 +1,183 @@
+{
+  "schema_version": "1.0.0",
+  "task": "generate",
+  "model_target": {
+    "family": "nano-banana-pro",
+    "api_model": "gemini-3-pro-image-preview",
+    "reason": "Poster layout with exact typography hierarchy and cultural styling benefits from the higher-fidelity model."
+  },
+  "intent": {
+    "goal": "Create a digital festival poster with readable on-image text",
+    "audience": "museum visitors and spring arts attendees",
+    "use_case": "event poster",
+    "platform": "none",
+    "tone": "elegant, celebratory, culturally respectful"
+  },
+  "subject": {
+    "primary": "lantern procession crossing a bridge",
+    "count": 12,
+    "descriptors": [
+      "spring festival",
+      "patterned robes",
+      "evening procession",
+      "decorative lantern glow"
+    ],
+    "action": "moving in a graceful line across the bridge over dark water",
+    "identity_lock": false,
+    "pose": "varied but rhythmically staged figures",
+    "expression": "joyful but composed",
+    "props": [
+      "paper lanterns",
+      "festival banners",
+      "bridge rail details"
+    ]
+  },
+  "scene": {
+    "setting": "riverside bridge scene",
+    "era": "Edo-inspired historical festival setting",
+    "geography": "Japanese urban river district",
+    "weather": "clear spring evening",
+    "time_of_day": "blue hour into night",
+    "background": "water planes, distant rooflines, low decorative cloud shapes, controlled lantern reflections",
+    "environment_logic": [
+      "the title field should remain uncluttered in the upper third",
+      "lantern reflections should rhythmically echo across the water",
+      "architecture and garments should remain period-coherent"
+    ]
+  },
+  "composition": {
+    "shot_type": "poster illustration",
+    "framing": "vertical composition with a dominant upper title field and midframe procession band",
+    "camera_angle": "elevated side view with graceful asymmetry",
+    "lens_equivalent_mm": 35,
+    "depth_behavior": "flattened decorative depth appropriate to print language",
+    "negative_space": "quiet upper-third field for title and subhead",
+    "aspect_ratio": "9:16",
+    "motion": "decorative procession flow from lower-left toward upper-right"
+  },
+  "lighting": {
+    "key": "soft lantern glow distributed across the bridge",
+    "fill": "cool evening sky wash",
+    "rim": "subtle warm edge on robe silhouettes nearest lantern clusters",
+    "practicals": [
+      "paper lanterns"
+    ],
+    "atmosphere": "clear evening air with restrained decorative mist shapes",
+    "material_response": [
+      "matte paper lanterns",
+      "patterned textiles",
+      "ink-flat water surfaces",
+      "lacquer accents"
+    ],
+    "color_temperature": "warm lanterns against cool twilight field"
+  },
+  "style": {
+    "family": "manga",
+    "genre": "historical",
+    "movement": "ukiyo-e",
+    "culture": "japanese-edo",
+    "palette": [
+      "indigo",
+      "vermillion",
+      "warm lantern gold",
+      "soft cream"
+    ],
+    "texture": "woodblock-inspired line rhythm and color separation",
+    "mood": "festive grace with calm elegance",
+    "influences": [
+      {
+        "source": "Edo print poster language",
+        "traits": [
+          "flattened depth",
+          "contour rhythm",
+          "pattern discipline",
+          "asymmetric crop elegance"
+        ]
+      }
+    ]
+  },
+  "text_overlay": {
+    "enabled": true,
+    "copy": [
+      {
+        "role": "headline",
+        "text": "Lanterns of Spring",
+        "priority": 10
+      },
+      {
+        "role": "subhead",
+        "text": "A Night Procession of Light and Pattern",
+        "priority": 7
+      },
+      {
+        "role": "body",
+        "text": "April 18 • River Arts Hall • Kyoto District",
+        "priority": 6
+      },
+      {
+        "role": "legal",
+        "text": "Presented by the Museum of Seasonal Arts",
+        "priority": 3
+      }
+    ],
+    "placement": "headline in upper third, body copy in lower third, legal line at footer",
+    "safe_margins": "8% on all sides with extra breathing room at top",
+    "language": "en"
+  },
+  "constraints": {
+    "must_include": [
+      "readable title hierarchy",
+      "uncluttered upper title field",
+      "bridge procession rhythm",
+      "period-coherent garments"
+    ],
+    "must_avoid": [
+      "modern neon signage",
+      "photo-real skin rendering",
+      "busy texture behind headline"
+    ],
+    "banned_terms": [
+      "trending on artstation",
+      "8k"
+    ],
+    "accessibility": [
+      "strong headline contrast",
+      "clear separation between title and background"
+    ],
+    "continuity_priority": "low"
+  },
+  "safety": {
+    "person_likeness": "fictional festival figures only",
+    "brand_marks": "no modern logos",
+    "copyright": "original composition inspired by historical print traits",
+    "violence": "none",
+    "sexual_content": "none",
+    "minors": "mixed public crowd acceptable but no focus on minors",
+    "policy_notes": [
+      "cultural framing should remain respectful and non-caricatured"
+    ]
+  },
+  "output": {
+    "profile": "poster-layout",
+    "platform": "none",
+    "image_count": 1,
+    "background": "integrated scene",
+    "size_tier": "2K",
+    "file_naming": "poster-edo-festival-text",
+    "transparent_background": false
+  },
+  "compiler": {
+    "token_budget_profile": "poster-or-infographic",
+    "slop_scrub_level": "strict"
+  },
+  "interview": {
+    "needed": false,
+    "answered": [
+      "title text",
+      "style",
+      "format",
+      "event tone"
+    ],
+    "missing": []
+  }
+}

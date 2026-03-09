@@ -1,0 +1,1016 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://emily2040.github.io/nano-banana-image-skill/schemas/authoring-base.json",
+  "title": "Nano Banana Authoring Base",
+  "description": "Rich creative-brief schema used before final compilation into a runtime prompt payload.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "task",
+    "model_target",
+    "intent",
+    "subject",
+    "scene",
+    "composition",
+    "lighting",
+    "style",
+    "constraints",
+    "output"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "task": {
+      "type": "string",
+      "enum": [
+        "generate",
+        "edit",
+        "composite",
+        "relight",
+        "outpaint",
+        "variation"
+      ]
+    },
+    "model_target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "family",
+        "api_model",
+        "reason"
+      ],
+      "properties": {
+        "family": {
+          "type": "string",
+          "enum": [
+            "nano-banana-pro",
+            "nano-banana-2",
+            "nano-banana"
+          ]
+        },
+        "api_model": {
+          "type": "string",
+          "enum": [
+            "gemini-3-pro-image-preview",
+            "gemini-3.1-flash-image-preview",
+            "gemini-2.5-flash-image"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "intent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "goal",
+        "audience",
+        "use_case"
+      ],
+      "properties": {
+        "goal": {
+          "type": "string",
+          "minLength": 1
+        },
+        "audience": {
+          "type": "string",
+          "minLength": 1
+        },
+        "use_case": {
+          "type": "string",
+          "minLength": 1
+        },
+        "platform": {
+          "type": "string"
+        },
+        "tone": {
+          "type": "string"
+        }
+      }
+    },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "primary",
+        "descriptors",
+        "action"
+      ],
+      "properties": {
+        "primary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "descriptors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "action": {
+          "type": "string",
+          "minLength": 1
+        },
+        "identity_lock": {
+          "type": "boolean"
+        },
+        "pose": {
+          "type": "string"
+        },
+        "expression": {
+          "type": "string"
+        },
+        "wardrobe": {
+          "type": "string"
+        },
+        "props": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "scene": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "setting",
+        "era",
+        "environment_logic"
+      ],
+      "properties": {
+        "setting": {
+          "type": "string",
+          "minLength": 1
+        },
+        "era": {
+          "type": "string",
+          "minLength": 1
+        },
+        "geography": {
+          "type": "string"
+        },
+        "weather": {
+          "type": "string"
+        },
+        "time_of_day": {
+          "type": "string"
+        },
+        "background": {
+          "type": "string"
+        },
+        "environment_logic": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "composition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "shot_type",
+        "framing",
+        "camera_angle",
+        "aspect_ratio"
+      ],
+      "properties": {
+        "shot_type": {
+          "type": "string"
+        },
+        "framing": {
+          "type": "string"
+        },
+        "camera_angle": {
+          "type": "string"
+        },
+        "lens_equivalent_mm": {
+          "type": "integer",
+          "minimum": 8,
+          "maximum": 400
+        },
+        "depth_behavior": {
+          "type": "string"
+        },
+        "negative_space": {
+          "type": "string"
+        },
+        "aspect_ratio": {
+          "type": "string",
+          "enum": [
+            "1:1",
+            "4:5",
+            "3:4",
+            "16:9",
+            "9:16",
+            "21:9",
+            "2:3",
+            "3:2"
+          ]
+        },
+        "motion": {
+          "type": "string"
+        }
+      }
+    },
+    "lighting": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "key",
+        "fill",
+        "atmosphere",
+        "material_response"
+      ],
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "fill": {
+          "type": "string"
+        },
+        "rim": {
+          "type": "string"
+        },
+        "practicals": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "atmosphere": {
+          "type": "string"
+        },
+        "material_response": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "color_temperature": {
+          "type": "string"
+        }
+      }
+    },
+    "style": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "family"
+      ],
+      "properties": {
+        "family": {
+          "type": "string",
+          "enum": [
+            "anime",
+            "manga",
+            "photoreal",
+            "stylized-3d",
+            "realistic-3d"
+          ]
+        },
+        "genre": {
+          "type": "string"
+        },
+        "movement": {
+          "type": "string"
+        },
+        "culture": {
+          "type": "string"
+        },
+        "capture": {
+          "type": "string"
+        },
+        "pipeline": {
+          "type": "string"
+        },
+        "render_features": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "palette": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "texture": {
+          "type": "string"
+        },
+        "mood": {
+          "type": "string"
+        },
+        "influences": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "source",
+              "traits"
+            ],
+            "properties": {
+              "source": {
+                "type": "string"
+              },
+              "traits": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "text_overlay": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enabled"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "copy": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/textBlock"
+          }
+        },
+        "placement": {
+          "type": "string"
+        },
+        "safe_margins": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        }
+      }
+    },
+    "edit": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_images": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sourceImage"
+          }
+        },
+        "preserve": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "change": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "mask_hint": {
+          "type": "string"
+        },
+        "delta_priority": {
+          "type": "string"
+        }
+      }
+    },
+    "continuity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "series_name": {
+          "type": "string"
+        },
+        "locked_traits": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "vary_only": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reference_frame": {
+          "type": "string"
+        }
+      }
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "must_include",
+        "must_avoid"
+      ],
+      "properties": {
+        "must_include": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "must_avoid": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "banned_terms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "accessibility": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "continuity_priority": {
+          "type": "string"
+        }
+      }
+    },
+    "safety": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "person_likeness": {
+          "type": "string"
+        },
+        "brand_marks": {
+          "type": "string"
+        },
+        "copyright": {
+          "type": "string"
+        },
+        "violence": {
+          "type": "string"
+        },
+        "sexual_content": {
+          "type": "string"
+        },
+        "minors": {
+          "type": "string"
+        },
+        "policy_notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile",
+        "image_count",
+        "background",
+        "size_tier"
+      ],
+      "properties": {
+        "profile": {
+          "type": "string",
+          "enum": [
+            "portrait",
+            "product",
+            "architecture",
+            "character-sheet",
+            "infographic",
+            "poster-layout",
+            "game-key-art",
+            "vfx-shot"
+          ]
+        },
+        "platform": {
+          "type": "string",
+          "enum": [
+            "instagram-post",
+            "tiktok-vertical",
+            "youtube-vlog",
+            "podcast-cover",
+            "none"
+          ]
+        },
+        "image_count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 12
+        },
+        "background": {
+          "type": "string"
+        },
+        "size_tier": {
+          "type": "string",
+          "enum": [
+            "standard",
+            "2K",
+            "4K"
+          ]
+        },
+        "file_naming": {
+          "type": "string"
+        },
+        "transparent_background": {
+          "type": "boolean"
+        }
+      }
+    },
+    "compiler": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "token_budget_profile": {
+          "type": "string"
+        },
+        "slop_scrub_level": {
+          "type": "string",
+          "enum": [
+            "light",
+            "standard",
+            "strict"
+          ]
+        },
+        "compiled_prompt": {
+          "type": "string"
+        },
+        "avoid_prompt": {
+          "type": "string"
+        }
+      }
+    },
+    "interview": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "needed": {
+          "type": "boolean"
+        },
+        "answered": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "missing": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "textBlock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "role",
+        "text"
+      ],
+      "properties": {
+        "role": {
+          "type": "string",
+          "enum": [
+            "headline",
+            "subhead",
+            "body",
+            "cta",
+            "legal",
+            "label"
+          ]
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        }
+      }
+    },
+    "sourceImage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "role"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "primary",
+            "secondary",
+            "style",
+            "layout",
+            "identity",
+            "material"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "schema_version": "1.0.0",
+      "task": "generate",
+      "model_target": {
+        "family": "nano-banana-pro",
+        "api_model": "gemini-3-pro-image-preview",
+        "reason": "Poster layout with exact typography hierarchy and cultural styling benefits from the higher-fidelity model."
+      },
+      "intent": {
+        "goal": "Create a digital festival poster with readable on-image text",
+        "audience": "museum visitors and spring arts attendees",
+        "use_case": "event poster",
+        "platform": "none",
+        "tone": "elegant, celebratory, culturally respectful"
+      },
+      "subject": {
+        "primary": "lantern procession crossing a bridge",
+        "count": 12,
+        "descriptors": [
+          "spring festival",
+          "patterned robes",
+          "evening procession",
+          "decorative lantern glow"
+        ],
+        "action": "moving in a graceful line across the bridge over dark water",
+        "identity_lock": false,
+        "pose": "varied but rhythmically staged figures",
+        "expression": "joyful but composed",
+        "props": [
+          "paper lanterns",
+          "festival banners",
+          "bridge rail details"
+        ]
+      },
+      "scene": {
+        "setting": "riverside bridge scene",
+        "era": "Edo-inspired historical festival setting",
+        "geography": "Japanese urban river district",
+        "weather": "clear spring evening",
+        "time_of_day": "blue hour into night",
+        "background": "water planes, distant rooflines, low decorative cloud shapes, controlled lantern reflections",
+        "environment_logic": [
+          "the title field should remain uncluttered in the upper third",
+          "lantern reflections should rhythmically echo across the water",
+          "architecture and garments should remain period-coherent"
+        ]
+      },
+      "composition": {
+        "shot_type": "poster illustration",
+        "framing": "vertical composition with a dominant upper title field and midframe procession band",
+        "camera_angle": "elevated side view with graceful asymmetry",
+        "lens_equivalent_mm": 35,
+        "depth_behavior": "flattened decorative depth appropriate to print language",
+        "negative_space": "quiet upper-third field for title and subhead",
+        "aspect_ratio": "9:16",
+        "motion": "decorative procession flow from lower-left toward upper-right"
+      },
+      "lighting": {
+        "key": "soft lantern glow distributed across the bridge",
+        "fill": "cool evening sky wash",
+        "rim": "subtle warm edge on robe silhouettes nearest lantern clusters",
+        "practicals": [
+          "paper lanterns"
+        ],
+        "atmosphere": "clear evening air with restrained decorative mist shapes",
+        "material_response": [
+          "matte paper lanterns",
+          "patterned textiles",
+          "ink-flat water surfaces",
+          "lacquer accents"
+        ],
+        "color_temperature": "warm lanterns against cool twilight field"
+      },
+      "style": {
+        "family": "manga",
+        "genre": "historical",
+        "movement": "ukiyo-e",
+        "culture": "japanese-edo",
+        "palette": [
+          "indigo",
+          "vermillion",
+          "warm lantern gold",
+          "soft cream"
+        ],
+        "texture": "woodblock-inspired line rhythm and color separation",
+        "mood": "festive grace with calm elegance",
+        "influences": [
+          {
+            "source": "Edo print poster language",
+            "traits": [
+              "flattened depth",
+              "contour rhythm",
+              "pattern discipline",
+              "asymmetric crop elegance"
+            ]
+          }
+        ]
+      },
+      "text_overlay": {
+        "enabled": true,
+        "copy": [
+          {
+            "role": "headline",
+            "text": "Lanterns of Spring",
+            "priority": 10
+          },
+          {
+            "role": "subhead",
+            "text": "A Night Procession of Light and Pattern",
+            "priority": 7
+          },
+          {
+            "role": "body",
+            "text": "April 18 • River Arts Hall • Kyoto District",
+            "priority": 6
+          },
+          {
+            "role": "legal",
+            "text": "Presented by the Museum of Seasonal Arts",
+            "priority": 3
+          }
+        ],
+        "placement": "headline in upper third, body copy in lower third, legal line at footer",
+        "safe_margins": "8% on all sides with extra breathing room at top",
+        "language": "en"
+      },
+      "constraints": {
+        "must_include": [
+          "readable title hierarchy",
+          "uncluttered upper title field",
+          "bridge procession rhythm",
+          "period-coherent garments"
+        ],
+        "must_avoid": [
+          "modern neon signage",
+          "photo-real skin rendering",
+          "busy texture behind headline"
+        ],
+        "banned_terms": [
+          "trending on artstation",
+          "8k"
+        ],
+        "accessibility": [
+          "strong headline contrast",
+          "clear separation between title and background"
+        ],
+        "continuity_priority": "low"
+      },
+      "safety": {
+        "person_likeness": "fictional festival figures only",
+        "brand_marks": "no modern logos",
+        "copyright": "original composition inspired by historical print traits",
+        "violence": "none",
+        "sexual_content": "none",
+        "minors": "mixed public crowd acceptable but no focus on minors",
+        "policy_notes": [
+          "cultural framing should remain respectful and non-caricatured"
+        ]
+      },
+      "output": {
+        "profile": "poster-layout",
+        "platform": "none",
+        "image_count": 1,
+        "background": "integrated scene",
+        "size_tier": "2K",
+        "file_naming": "poster-edo-festival-text",
+        "transparent_background": false
+      },
+      "compiler": {
+        "token_budget_profile": "poster-or-infographic",
+        "slop_scrub_level": "strict"
+      },
+      "interview": {
+        "needed": false,
+        "answered": [
+          "title text",
+          "style",
+          "format",
+          "event tone"
+        ],
+        "missing": []
+      }
+    },
+    {
+      "schema_version": "1.0.0",
+      "task": "edit",
+      "model_target": {
+        "family": "nano-banana-pro",
+        "api_model": "gemini-3-pro-image-preview",
+        "reason": "Strict product preservation and label fidelity need a careful edit path."
+      },
+      "intent": {
+        "goal": "Upgrade a clean packshot into a premium campaign still without changing the product identity",
+        "audience": "luxury skincare buyers",
+        "use_case": "campaign still",
+        "platform": "instagram-post",
+        "tone": "premium, calm, jewel-toned, tactile"
+      },
+      "subject": {
+        "primary": "frosted glass skincare bottle",
+        "count": 1,
+        "descriptors": [
+          "cylindrical",
+          "silver cap",
+          "centered label",
+          "minimal design"
+        ],
+        "action": "standing still on a tabletop surface",
+        "identity_lock": true,
+        "pose": "front-facing with slight three-quarter cap turn",
+        "expression": "n/a"
+      },
+      "scene": {
+        "setting": "studio tabletop product setup",
+        "era": "contemporary",
+        "geography": "n/a",
+        "weather": "none",
+        "time_of_day": "studio controlled",
+        "background": "currently matte gray, to be replaced",
+        "environment_logic": [
+          "the bottle silhouette and front-facing label must remain exact",
+          "the new background may influence color bounce but not geometry",
+          "the tabletop reflection and shadow anchor should remain believable"
+        ]
+      },
+      "composition": {
+        "shot_type": "product hero still",
+        "framing": "centered bottle with comfortable breathing room",
+        "camera_angle": "eye-level to product shoulder",
+        "lens_equivalent_mm": 90,
+        "depth_behavior": "sharp focus on label plane with soft falloff behind",
+        "negative_space": "clean upper area for possible campaign wordmark",
+        "aspect_ratio": "1:1",
+        "motion": "static studio setup"
+      },
+      "lighting": {
+        "key": "large soft top-front source maintaining premium packshot clarity",
+        "fill": "restrained frontal return",
+        "rim": "narrow teal edge from back right",
+        "practicals": [],
+        "atmosphere": "clear studio air",
+        "material_response": [
+          "frosted glass diffusion",
+          "satin paper label",
+          "brushed silver cap"
+        ],
+        "color_temperature": "neutral key with jewel-toned rim accent"
+      },
+      "style": {
+        "family": "photoreal",
+        "palette": [
+          "emerald",
+          "silver",
+          "soft neutral white"
+        ],
+        "texture": "clean premium photography",
+        "mood": "quiet luxury",
+        "influences": [
+          {
+            "source": "luxury skincare advertising",
+            "traits": [
+              "restrained reflections",
+              "calm spacing",
+              "premium material emphasis"
+            ]
+          }
+        ]
+      },
+      "text_overlay": {
+        "enabled": false,
+        "copy": [],
+        "placement": "none",
+        "safe_margins": "none",
+        "language": "en"
+      },
+      "edit": {
+        "source_images": [
+          {
+            "id": "src-product-packshot-001",
+            "role": "primary",
+            "notes": "source packshot to preserve"
+          },
+          {
+            "id": "ref-emerald-marble-001",
+            "role": "material",
+            "notes": "wet emerald marble surface inspiration only"
+          }
+        ],
+        "preserve": [
+          "exact bottle silhouette",
+          "cap alignment",
+          "label geometry and text",
+          "camera angle and crop",
+          "tabletop reflection",
+          "shadow footprint"
+        ],
+        "change": [
+          "replace matte gray background with wet emerald marble",
+          "add narrow teal rim light from back right",
+          "keep the overall lighting premium and controlled"
+        ],
+        "mask_hint": "background replacement should avoid touching bottle edges or label plane",
+        "delta_priority": "preservation first, environment second, lighting accent third"
+      },
+      "constraints": {
+        "must_include": [
+          "label fully readable",
+          "premium jewel-toned backdrop",
+          "controlled reflections"
+        ],
+        "must_avoid": [
+          "bottle geometry drift",
+          "extra props",
+          "warped label text"
+        ],
+        "banned_terms": [
+          "masterpiece",
+          "award-winning"
+        ],
+        "accessibility": [
+          "clear object-background separation"
+        ],
+        "continuity_priority": "high"
+      },
+      "safety": {
+        "person_likeness": "none",
+        "brand_marks": "preserve fictional provided label only",
+        "copyright": "source image assumed user-provided",
+        "violence": "none",
+        "sexual_content": "none",
+        "minors": "none",
+        "policy_notes": [
+          "maintain truthful product appearance except for art-directed environment changes"
+        ]
+      },
+      "output": {
+        "profile": "product",
+        "platform": "instagram-post",
+        "image_count": 1,
+        "background": "environmental studio marble",
+        "size_tier": "2K",
+        "file_naming": "product-bottle-relight",
+        "transparent_background": false
+      },
+      "compiler": {
+        "token_budget_profile": "edit-delta",
+        "slop_scrub_level": "strict"
+      },
+      "interview": {
+        "needed": false,
+        "answered": [
+          "preservation list",
+          "background target",
+          "lighting change"
+        ],
+        "missing": []
+      }
+    }
+  ]
+}

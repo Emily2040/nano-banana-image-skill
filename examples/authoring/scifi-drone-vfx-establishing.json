@@ -1,0 +1,161 @@
+{
+  "schema_version": "1.0.0",
+  "task": "generate",
+  "model_target": {
+    "family": "nano-banana-2",
+    "api_model": "gemini-3.1-flash-image-preview",
+    "reason": "Fast cinematic ideation for a VFX-style establishing frame."
+  },
+  "intent": {
+    "goal": "Create a cinematic establishing frame for a sci-fi short film pitch",
+    "audience": "indie film collaborators and VFX supervisors",
+    "use_case": "pitch deck keyframe",
+    "platform": "youtube-vlog",
+    "tone": "moody, large-scale, believable, pressure-cooker urban"
+  },
+  "subject": {
+    "primary": "flooded neon service district",
+    "count": 1,
+    "descriptors": [
+      "dense rooftops",
+      "maintenance drones",
+      "stacked signage",
+      "storm runoff"
+    ],
+    "action": "sprawling below a hovering survey drone",
+    "identity_lock": false,
+    "pose": "n/a",
+    "expression": "n/a",
+    "props": [
+      "utility cables",
+      "rooftop tanks",
+      "service bridges"
+    ]
+  },
+  "scene": {
+    "setting": "multi-level urban service district",
+    "era": "near-future",
+    "geography": "coastal megacity industrial quarter",
+    "weather": "storm just passed with lingering mist",
+    "time_of_day": "late night",
+    "background": "flood channels, roof clutter, distant tower glow, steam vents",
+    "environment_logic": [
+      "the camera should feel airborne and slightly descending",
+      "water should reflect signage and utility lighting in broken patterns",
+      "the district should feel lived-in and infrastructural, not abstract wallpaper"
+    ]
+  },
+  "composition": {
+    "shot_type": "establishing frame",
+    "framing": "wide layered city view with strong foreground-midground-background separation",
+    "camera_angle": "low-hover descending drone angle",
+    "lens_equivalent_mm": 24,
+    "depth_behavior": "broad depth with atmospheric layering",
+    "negative_space": "upper-right haze band for optional title treatment",
+    "aspect_ratio": "16:9",
+    "motion": "gentle glide through humid night air"
+  },
+  "lighting": {
+    "key": "mixed signage and sodium practicals shaping the flooded lanes",
+    "fill": "cool storm-cloud ambient",
+    "rim": "occasional cyan edge from rooftop beacons",
+    "practicals": [
+      "LED signs",
+      "maintenance beacons",
+      "street flood lamps"
+    ],
+    "atmosphere": "thin vapor and steam revealing depth without obscuring layout",
+    "material_response": [
+      "wet concrete sheen",
+      "oxidized metal panels",
+      "glossy puddle reflections",
+      "dim window glow"
+    ],
+    "color_temperature": "cool ambient with warm industrial practicals"
+  },
+  "style": {
+    "family": "photoreal",
+    "genre": "sci-fi",
+    "capture": "drone",
+    "pipeline": "nuke-composite",
+    "render_features": [
+      "volumetric-lighting"
+    ],
+    "palette": [
+      "cyan",
+      "amber",
+      "sickly green accents",
+      "charcoal"
+    ],
+    "texture": "plate-aware VFX realism",
+    "mood": "industrial nocturnal tension",
+    "influences": [
+      {
+        "source": "cinematic sci-fi keyframes",
+        "traits": [
+          "infrastructure realism",
+          "layered atmospheric depth",
+          "controlled sign glow"
+        ]
+      }
+    ]
+  },
+  "text_overlay": {
+    "enabled": false,
+    "copy": [],
+    "placement": "none",
+    "safe_margins": "none",
+    "language": "en"
+  },
+  "constraints": {
+    "must_include": [
+      "airborne perspective",
+      "flooded reflective surfaces",
+      "maintenance infrastructure"
+    ],
+    "must_avoid": [
+      "cartoonish flying cars",
+      "symmetrical sterile skyline",
+      "flat generic cyberpunk clutter"
+    ],
+    "banned_terms": [
+      "epic masterpiece"
+    ],
+    "accessibility": [
+      "clear depth layering and focal path"
+    ],
+    "continuity_priority": "medium"
+  },
+  "safety": {
+    "person_likeness": "none",
+    "brand_marks": "avoid real corporate logos",
+    "copyright": "original worldbuilding",
+    "violence": "none visible",
+    "sexual_content": "none",
+    "minors": "none",
+    "policy_notes": []
+  },
+  "output": {
+    "profile": "vfx-shot",
+    "platform": "youtube-vlog",
+    "image_count": 1,
+    "background": "environmental",
+    "size_tier": "2K",
+    "file_naming": "scifi-drone-vfx-establishing",
+    "transparent_background": false
+  },
+  "compiler": {
+    "token_budget_profile": "generate-complex",
+    "slop_scrub_level": "standard"
+  },
+  "interview": {
+    "needed": false,
+    "answered": [
+      "format",
+      "camera",
+      "tone",
+      "world type"
+    ],
+    "missing": []
+  }
+}

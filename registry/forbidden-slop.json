@@ -1,0 +1,68 @@
+{
+  "version": "1.0.0",
+  "exact_discouraged": [
+    "masterpiece",
+    "best quality",
+    "award-winning",
+    "trending on artstation",
+    "insanely detailed",
+    "ultra detailed",
+    "hyper detailed",
+    "epic composition",
+    "stunning visuals",
+    "4k wallpaper",
+    "8k",
+    "uhd",
+    "rendered in unreal and octane and nuke"
+  ],
+  "phrase_rewrites": [
+    {
+      "from": "cinematic lighting",
+      "to": "specify key light, fill behavior, rim light, practicals, atmosphere, and color temperature",
+      "why": "generic wording hides actual art direction"
+    },
+    {
+      "from": "professional photography",
+      "to": "specify camera position, lens feel, focal depth, and material response",
+      "why": "camera realism comes from specifics"
+    },
+    {
+      "from": "beautiful composition",
+      "to": "specify framing, subject placement, leading lines, and negative space",
+      "why": "beauty is not a camera instruction"
+    }
+  ],
+  "collision_rules": [
+    {
+      "if_all_present": [
+        "manga",
+        "photoreal",
+        "realistic-3d"
+      ],
+      "advice": "choose a primary family and justify any hybridization"
+    },
+    {
+      "if_all_present": [
+        "iphone-night-mode",
+        "octane-render"
+      ],
+      "advice": "capture cues and render-pipeline cues can clash; prefer one dominant visual language"
+    },
+    {
+      "if_all_present": [
+        "surrealism",
+        "strict documentary realism"
+      ],
+      "advice": "clarify whether physics or dream logic should dominate"
+    }
+  ],
+  "keep_phrases": [
+    "subject consistency",
+    "preserve geometry",
+    "clear text hierarchy",
+    "negative space",
+    "material response",
+    "camera angle",
+    "locked elements"
+  ]
+}

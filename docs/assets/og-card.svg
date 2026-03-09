@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#071120"/>
+      <stop offset="100%" stop-color="#24153e"/>
+    </linearGradient>
+    <linearGradient id="banana" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff1a6"/>
+      <stop offset="100%" stop-color="#ffbf5b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="980" cy="140" r="160" fill="#6be6ff" fill-opacity=".16"/>
+  <circle cx="1090" cy="520" r="180" fill="#ff7fd8" fill-opacity=".11"/>
+  <g transform="translate(84 82)" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+    <text y="88" fill="#f7fbff" font-size="68" font-weight="800">Nano Banana Image Skill</text>
+    <text y="146" fill="#a9d7ff" font-size="28">Portable Gemini image prompting for SKILL.md, AGENTS.md, CLAUDE.md, and GEMINI.md</text>
+    <text y="232" fill="#d6e6ff" font-size="24">Grounded prompts • preservation-aware edits • typography • runtime JSON</text>
+    <rect x="0" y="300" width="860" height="148" rx="28" fill="#ffffff" fill-opacity=".06" stroke="#c7ebff" stroke-opacity=".24"/>
+    <text x="34" y="354" fill="#99ebff" font-size="22" font-weight="700">Targets</text>
+    <text x="34" y="394" fill="#f5fbff" font-size="30" font-weight="700">Nano Banana Pro • Nano Banana 2</text>
+    <text x="34" y="432" fill="#c4dbff" font-size="22">GitHub-ready repo • schemas • examples • static docs front-end</text>
+  </g>
+  <g transform="translate(940 156)">
+    <path d="M42 10c54 8 84 62 69 109-17 51-72 87-126 79 40-16 68-46 78-80 11-39-3-78-21-108Z" fill="url(#banana)"/>
+  </g>
+</svg>

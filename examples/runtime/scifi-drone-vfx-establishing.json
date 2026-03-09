@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "mode": "generate",
+  "model": "gemini-3.1-flash-image-preview",
+  "prompt": "Create a vfx shot for Create a cinematic establishing frame for a sci-fi short film pitch. Subject: flooded neon service district — dense rooftops, maintenance drones, stacked signage, storm runoff; sprawling below a hovering survey drone; n/a; n/a. Scene: multi-level urban service district, near-future, coastal megacity industrial quarter, storm just passed with lingering mist, late night, flood channels, roof clutter, distant tower glow, steam vents. World logic: the camera should feel airborne and slightly descending, water should reflect signage and utility lighting in broken patterns, the district should feel lived-in and infrastructural, not abstract wallpaper. Composition: establishing frame, wide layered city view with strong foreground-midground-background separation, low-hover descending drone angle, 24mm lens feel, broad depth with atmospheric layering, gentle glide through humid night air, negative space: upper-right haze band for optional title treatment, aspect ratio 16:9. Lighting: key light: mixed signage and sodium practicals shaping the flooded lanes, fill: cool storm-cloud ambient, rim: occasional cyan edge from rooftop beacons, practicals: LED signs, maintenance beacons, street flood lamps, thin vapor and steam revealing depth without obscuring layout, material response: wet concrete sheen, oxidized metal panels, glossy puddle reflections, dim window glow, cool ambient with warm industrial practicals. Style stack: photoreal, sci-fi, drone, nuke-composite, volumetric-lighting, vfx-shot, youtube-vlog, plate-aware VFX realism, industrial nocturnal tension, palette: cyan, amber, sickly green accents, charcoal, cinematic sci-fi keyframes traits: infrastructure realism, layered atmospheric depth, controlled sign glow. Must include: airborne perspective, flooded reflective surfaces, maintenance infrastructure. Avoid: cartoonish flying cars, symmetrical sterile skyline, flat generic cyberpunk clutter. Accessibility: clear depth layering and focal path.",
+  "avoid": [
+    "cartoonish flying cars",
+    "symmetrical sterile skyline",
+    "flat generic cyberpunk clutter"
+  ],
+  "aspect_ratio": "16:9",
+  "image_size": "2K",
+  "profile": "vfx-shot",
+  "metadata": {
+    "family": "photoreal",
+    "platform": "youtube-vlog",
+    "style_stack": [
+      "photoreal",
+      "sci-fi",
+      "drone",
+      "nuke-composite",
+      "volumetric-lighting",
+      "vfx-shot",
+      "youtube-vlog"
+    ],
+    "notes": [
+      "Fast cinematic ideation for a VFX-style establishing frame.",
+      "pitch deck keyframe"
+    ]
+  },
+  "text_overlay": {
+    "enabled": false,
+    "blocks": [],
+    "safe_margins": "none"
+  }
+}

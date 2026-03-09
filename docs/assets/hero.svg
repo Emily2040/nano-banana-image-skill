@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 620" role="img" aria-labelledby="title desc">
+  <title id="title">Nano Banana Image Skill</title>
+  <desc id="desc">A luminous dark-gradient hero banner with orbital lines, glass cards, and a stylized crescent mark.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#081225"/>
+      <stop offset="38%" stop-color="#111c38"/>
+      <stop offset="72%" stop-color="#22173f"/>
+      <stop offset="100%" stop-color="#0f0f1f"/>
+    </linearGradient>
+    <radialGradient id="orbA" cx="20%" cy="20%" r="70%">
+      <stop offset="0%" stop-color="#68f5ff" stop-opacity=".75"/>
+      <stop offset="100%" stop-color="#68f5ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbB" cx="78%" cy="24%" r="60%">
+      <stop offset="0%" stop-color="#ff7bd5" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#ff7bd5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbC" cx="68%" cy="86%" r="70%">
+      <stop offset="0%" stop-color="#ffd36a" stop-opacity=".35"/>
+      <stop offset="100%" stop-color="#ffd36a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="glassStroke" x1="0" x2="1">
+      <stop offset="0%" stop-color="#c8f8ff" stop-opacity=".45"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity=".08"/>
+    </linearGradient>
+    <linearGradient id="crescent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff0a4"/>
+      <stop offset="50%" stop-color="#ffd76e"/>
+      <stop offset="100%" stop-color="#ffb54d"/>
+    </linearGradient>
+    <filter id="blur40"><feGaussianBlur stdDeviation="40"/></filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="12" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#b6dcff" stroke-opacity=".06"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="620" fill="url(#bg)"/>
+  <rect width="1600" height="620" fill="url(#grid)"/>
+
+  <circle cx="260" cy="130" r="230" fill="url(#orbA)" filter="url(#blur40)"/>
+  <circle cx="1260" cy="110" r="210" fill="url(#orbB)" filter="url(#blur40)"/>
+  <circle cx="1180" cy="540" r="260" fill="url(#orbC)" filter="url(#blur40)"/>
+
+  <g stroke="#8dd9ff" stroke-opacity=".22" fill="none">
+    <ellipse cx="1220" cy="220" rx="230" ry="95"/>
+    <ellipse cx="1260" cy="250" rx="320" ry="130" transform="rotate(-14 1260 250)"/>
+    <ellipse cx="1350" cy="250" rx="168" ry="58" transform="rotate(10 1350 250)"/>
+  </g>
+
+  <g transform="translate(1180 165)">
+    <path d="M42 12c59 8 92 69 74 122-18 53-80 91-139 82 44-17 75-49 85-86 12-44-4-87-20-118Z" fill="url(#crescent)" filter="url(#glow)"/>
+    <circle cx="168" cy="44" r="4" fill="#d4fbff"/>
+    <circle cx="186" cy="70" r="3" fill="#ffd0f1"/>
+    <circle cx="142" cy="94" r="2.7" fill="#fff2b2"/>
+    <path d="M168 36l3 8 8 3-8 3-3 8-3-8-8-3 8-3Z" fill="#d9fbff"/>
+  </g>
+
+  <g transform="translate(80 72)">
+    <rect x="0" y="0" width="860" height="476" rx="34" fill="#ffffff" fill-opacity=".055" stroke="url(#glassStroke)"/>
+    <text x="56" y="120" fill="#eef8ff" font-size="74" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif">
+      Nano Banana Image Skill
+    </text>
+    <text x="56" y="172" fill="#9ed8ff" font-size="28" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+      Portable prompting system for Gemini image generation and editing
+    </text>
+    <text x="56" y="242" fill="#c8deff" font-size="22" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+      SKILL.md • AGENTS.md • CLAUDE.md • GEMINI.md • JSON schemas • GitHub Pages front-end
+    </text>
+
+    <g transform="translate(54 304)">
+      <rect x="0" y="0" width="238" height="92" rx="22" fill="#081225" fill-opacity=".42" stroke="#98e4ff" stroke-opacity=".32"/>
+      <text x="22" y="36" fill="#91ecff" font-size="18" font-weight="600" font-family="Inter, ui-sans-serif, system-ui, sans-serif">Fast lane</text>
+      <text x="22" y="66" fill="#f3fbff" font-size="24" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, sans-serif">Nano Banana 2</text>
+    </g>
+    <g transform="translate(314 304)">
+      <rect x="0" y="0" width="246" height="92" rx="22" fill="#0e1327" fill-opacity=".44" stroke="#ffd0ef" stroke-opacity=".28"/>
+      <text x="22" y="36" fill="#ffc7ec" font-size="18" font-weight="600" font-family="Inter, ui-sans-serif, system-ui, sans-serif">Precision lane</text>
+      <text x="22" y="66" fill="#fff7fb" font-size="24" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, sans-serif">Nano Banana Pro</text>
+    </g>
+    <g transform="translate(582 304)">
+      <rect x="0" y="0" width="222" height="92" rx="22" fill="#130f23" fill-opacity=".45" stroke="#ffe4ad" stroke-opacity=".28"/>
+      <text x="22" y="36" fill="#ffe59d" font-size="18" font-weight="600" font-family="Inter, ui-sans-serif, system-ui, sans-serif">Beautifully wired</text>
+      <text x="22" y="66" fill="#fffaf0" font-size="24" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, sans-serif">Modular skill pack</text>
+    </g>
+
+    <text x="56" y="438" fill="#d4e7ff" font-size="18" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+      Interviews with restraint • grounds reality • routes style • preserves identity • compiles clean runtime JSON
+    </text>
+  </g>
+
+  <g transform="translate(1075 390)">
+    <rect x="0" y="0" width="390" height="138" rx="28" fill="#ffffff" fill-opacity=".055" stroke="url(#glassStroke)"/>
+    <text x="28" y="40" fill="#ffffff" font-size="22" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, sans-serif">The main trick</text>
+    <text x="28" y="76" fill="#beddff" font-size="18" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+      Turn fuzzy creative wishes into grounded prompts
+    </text>
+    <text x="28" y="104" fill="#beddff" font-size="18" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+      that survive editing, typography, continuity, and API handoff.
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 920" role="img" aria-labelledby="title desc">
+  <title id="title">Skill constellation map</title>
+  <desc id="desc">Network diagram showing the modular skill architecture with luminous nodes and connecting lines.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#071120"/>
+      <stop offset="55%" stop-color="#12152d"/>
+      <stop offset="100%" stop-color="#1a1234"/>
+    </linearGradient>
+    <filter id="nodeGlow">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="dots" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#cde7ff" fill-opacity=".18"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="920" fill="url(#bg)"/>
+  <rect width="1600" height="920" fill="url(#dots)"/>
+
+  <g stroke="#7edcff" stroke-opacity=".25" stroke-width="2" fill="none">
+    <path d="M220 330C420 240 560 190 790 220"/>
+    <path d="M790 220C980 210 1120 260 1360 340"/>
+    <path d="M790 220C780 360 760 470 760 620"/>
+    <path d="M760 620C560 650 420 670 220 730"/>
+    <path d="M760 620C930 640 1110 650 1360 700"/>
+    <path d="M220 330C220 510 220 580 220 730"/>
+    <path d="M1360 340C1360 560 1360 600 1360 700"/>
+    <path d="M760 620C760 770 760 810 760 860"/>
+    <path d="M220 330C420 420 560 520 760 620"/>
+    <path d="M1360 340C1160 430 980 530 760 620"/>
+  </g>
+
+  <g transform="translate(650 152)">
+    <circle r="18" fill="#9ef0ff" filter="url(#nodeGlow)"/>
+    <circle r="54" fill="#9ef0ff" fill-opacity=".08"/>
+    <text y="-44" text-anchor="middle" fill="#f6fbff" font-size="30" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, sans-serif">Core Orchestrator</text>
+    <text y="82" text-anchor="middle" fill="#b9daff" font-size="18" font-family="Inter, ui-sans-serif, system-ui, sans-serif">interview • router • compiler • risk</text>
+  </g>
+
+  <g transform="translate(170 292)">
+    <circle r="10" fill="#8de5ff" filter="url(#nodeGlow)"/>
+    <text x="28" y="6" fill="#eaf8ff" font-size="24" font-weight="600" font-family="Inter, ui-sans-serif, system-ui, sans-serif">Families</text>
+    <text x="28" y="36" fill="#bddcff" font-size="17" font-family="Inter, ui-sans-serif, system-ui, sans-serif">anime • manga • photoreal • 3D</text>
+  </g>
+
+  <g transform="translate(170 690)">
+    <circle r="10" fill="#91ffc9" filter="url(#nodeGlow)"/>
+    <text x="28" y="6" fill="#effff7" font-size="24" font-weight="600" font-family="Inter, ui-sans-serif, system-ui, sans-serif">Profiles</text>
+    <text x="28" y="36" fill="#d1ffe9" font-size="17" font-family="Inter, ui-sans-serif, system-ui, sans-serif">portrait • product • poster • infographic</text>
+  </g>
+
+  <g transform="translate(1330 302)">
+    <circle r="10" fill="#ff98db" filter="url(#nodeGlow)"/>
+    <text x="-28" y="6" text-anchor="end" fill="#fff4fb" font-size="24" font-weight="600" font-family="Inter, ui-sans-serif, system-ui, sans-serif">Capture + Pipeline</text>
+    <text x="-28" y="36" text-anchor="end" fill="#ffd2ee" font-size="17" font-family="Inter, ui-sans-serif, system-ui, sans-serif">night modes • drone • UE5 • Octane • Nuke</text>
+  </g>
+
+  <g transform="translate(1330 690)">
+    <circle r="10" fill="#ffdb82" filter="url(#nodeGlow)"/>
+    <text x="-28" y="6" text-anchor="end" fill="#fff9ea" font-size="24" font-weight="600" font-family="Inter, ui-sans-serif, system-ui, sans-serif">Overlays + Platforms</text>
+    <text x="-28" y="36" text-anchor="end" fill="#ffe7b2" font-size="17" font-family="Inter, ui-sans-serif, system-ui, sans-serif">text • relight • outpaint • social formats</text>
+  </g>
+
+  <g transform="translate(760 842)">
+    <circle r="12" fill="#c09dff" filter="url(#nodeGlow)"/>
+    <text y="48" text-anchor="middle" fill="#f6efff" font-size="24" font-weight="600" font-family="Inter, ui-sans-serif, system-ui, sans-serif">Schemas + Examples</text>
+    <text y="78" text-anchor="middle" fill="#dccbff" font-size="17" font-family="Inter, ui-sans-serif, system-ui, sans-serif">authoring-base • runtime-compact • validated samples</text>
+  </g>
+
+  <g fill="#ffffff" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+    <text x="80" y="90" font-size="42" font-weight="700">Skill constellation</text>
+    <text x="80" y="128" font-size="20" fill="#bfd7ff">A modular architecture for prompt authoring, editing, continuity, typography, and runtime handoff.</text>
+  </g>
+
+  <g transform="translate(605 332)">
+    <rect x="0" y="0" width="310" height="228" rx="24" fill="#ffffff" fill-opacity=".055" stroke="#c9ecff" stroke-opacity=".22"/>
+    <text x="24" y="38" fill="#f5fbff" font-size="24" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, sans-serif">Compiler spine</text>
+    <text x="24" y="76" fill="#cae1ff" font-size="18" font-family="Inter, ui-sans-serif, system-ui, sans-serif">1. Interview only what is missing</text>
+    <text x="24" y="108" fill="#cae1ff" font-size="18" font-family="Inter, ui-sans-serif, system-ui, sans-serif">2. Ground the subject, scene, and world model</text>
+    <text x="24" y="140" fill="#cae1ff" font-size="18" font-family="Inter, ui-sans-serif, system-ui, sans-serif">3. Route style, profile, platform, overlays</text>
+    <text x="24" y="172" fill="#cae1ff" font-size="18" font-family="Inter, ui-sans-serif, system-ui, sans-serif">4. Preserve locks, define deltas, scrub slop</text>
+    <text x="24" y="204" fill="#cae1ff" font-size="18" font-family="Inter, ui-sans-serif, system-ui, sans-serif">5. Emit runtime JSON that downstream tools can trust</text>
+  </g>
+</svg>

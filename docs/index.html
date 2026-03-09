@@ -1,0 +1,453 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Nano Banana Image Skill</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portable Gemini image prompting skill for Nano Banana Pro and Nano Banana 2.">
+  <meta property="og:title" content="Nano Banana Image Skill">
+  <meta property="og:description" content="Portable Gemini image prompting skill with schemas, examples, and a polished docs front-end.">
+  <meta property="og:image" content="./assets/og-card.svg">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <style>
+    :root{
+      --bg:#09111f;
+      --bg2:#1b1234;
+      --card:rgba(255,255,255,.06);
+      --stroke:rgba(197,233,255,.18);
+      --text:#eef8ff;
+      --muted:#b8d3ef;
+      --aqua:#8de8ff;
+      --pink:#ff9fe2;
+      --gold:#ffd889;
+      --violet:#c4a4ff;
+      --shadow:0 20px 80px rgba(0,0,0,.35);
+      --radius:28px;
+      --max:1240px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font:16px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(80rem 50rem at 10% -10%, rgba(104,245,255,.18), transparent 55%),
+        radial-gradient(70rem 40rem at 90% 0%, rgba(255,123,213,.15), transparent 55%),
+        linear-gradient(135deg, var(--bg), #12162b 42%, var(--bg2));
+      min-height:100vh;
+    }
+    a{color:inherit}
+    .shell{max-width:var(--max);margin:0 auto;padding:0 24px}
+    .nav{
+      position:sticky; top:0; z-index:40;
+      backdrop-filter: blur(18px);
+      background:rgba(9,17,31,.52);
+      border-bottom:1px solid rgba(200,234,255,.09);
+    }
+    .nav-inner{
+      max-width:var(--max);margin:0 auto;padding:14px 24px;
+      display:flex;align-items:center;justify-content:space-between;gap:18px;
+    }
+    .brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+    .brand img{width:36px;height:36px}
+    .brand strong{font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:#f7fbff}
+    .links{display:flex;gap:18px;flex-wrap:wrap}
+    .links a{text-decoration:none;color:var(--muted);font-size:14px}
+    .links a:hover{color:#fff}
+    .hero{padding:38px 0 42px}
+    .hero img{
+      width:100%;display:block;border-radius:34px;border:1px solid rgba(216,239,255,.14);
+      box-shadow:var(--shadow)
+    }
+    .intro{
+      display:grid;grid-template-columns:1.2fr .8fr;gap:28px;padding:34px 0 10px;
+    }
+    h1,h2,h3{line-height:1.08;margin:0}
+    .eyebrow{display:inline-flex;gap:10px;align-items:center;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:#d9ebff;font-size:13px;letter-spacing:.05em;text-transform:uppercase}
+    .lead h1{font-size:clamp(2.5rem, 5vw, 4.4rem);margin-top:18px}
+    .lead p{font-size:1.15rem;color:var(--muted);max-width:64ch;margin:18px 0 0}
+    .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:14px 18px;border-radius:16px;text-decoration:none;font-weight:700;
+      border:1px solid transparent;transition:transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn.primary{background:linear-gradient(135deg, rgba(110,234,255,.18), rgba(255,145,223,.18));border-color:rgba(201,239,255,.24)}
+    .btn.secondary{background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.09)}
+    .callout{
+      background:var(--card); border:1px solid var(--stroke); border-radius:var(--radius); padding:22px;
+      box-shadow:var(--shadow)
+    }
+    .callout p{margin:0;color:var(--muted)}
+    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .stat{padding:18px;border-radius:22px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08)}
+    .stat strong{display:block;font-size:1.9rem}
+    .stat span{color:var(--muted);font-size:.96rem}
+    section{padding:36px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:18px}
+    .section-head p{margin:0;color:var(--muted);max-width:68ch}
+    .grid{display:grid;gap:18px}
+    .three{grid-template-columns:repeat(3, minmax(0,1fr))}
+    .four{grid-template-columns:repeat(4, minmax(0,1fr))}
+    .two{grid-template-columns:repeat(2, minmax(0,1fr))}
+    .card{
+      background:var(--card);border:1px solid var(--stroke);border-radius:28px;padding:22px;box-shadow:var(--shadow)
+    }
+    .card h3{font-size:1.15rem;margin-bottom:10px}
+    .card p{margin:0;color:var(--muted)}
+    .pill{
+      display:inline-flex;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;
+      background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:#dbeeff;margin-bottom:12px
+    }
+    ul.clean{list-style:none;padding:0;margin:12px 0 0}
+    ul.clean li{position:relative;padding-left:18px;margin:10px 0;color:var(--muted)}
+    ul.clean li::before{
+      content:"";position:absolute;left:0;top:.7em;width:8px;height:8px;border-radius:50%;
+      background:linear-gradient(135deg,var(--aqua),var(--pink))
+    }
+    .models .card:nth-child(1){background:linear-gradient(180deg, rgba(110,234,255,.08), rgba(255,255,255,.045))}
+    .models .card:nth-child(2){background:linear-gradient(180deg, rgba(255,145,223,.08), rgba(255,255,255,.045))}
+    .models .card:nth-child(3){background:linear-gradient(180deg, rgba(255,216,137,.08), rgba(255,255,255,.045))}
+    .image-card img{width:100%;display:block;border-radius:22px;border:1px solid rgba(255,255,255,.09)}
+    code, pre{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    pre{
+      margin:0; padding:18px 20px; overflow:auto;
+      background:#0b1322;border-radius:22px;border:1px solid rgba(255,255,255,.08);color:#d7ebff
+    }
+    .compat table{
+      width:100%; border-collapse:collapse; overflow:hidden; border-radius:26px;
+      background:rgba(255,255,255,.045); border:1px solid rgba(255,255,255,.08)
+    }
+    .compat th, .compat td{padding:16px 18px; text-align:left; border-bottom:1px solid rgba(255,255,255,.06)}
+    .compat th{color:#eff8ff;background:rgba(255,255,255,.03)}
+    .compat td{color:var(--muted)}
+    .compat tr:last-child td{border-bottom:none}
+    .footer{padding:36px 0 72px;color:#aecaeb}
+    .footer .card{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+    .mini{font-size:.92rem;color:var(--muted)}
+    @media (max-width: 1040px){
+      .intro{grid-template-columns:1fr}
+      .three,.four,.two{grid-template-columns:1fr}
+      .section-head{display:block}
+      .section-head p{margin-top:10px}
+      .compat table, .compat thead, .compat tbody, .compat th, .compat td, .compat tr{display:block}
+      .compat thead{display:none}
+      .compat tr{padding:14px;border-bottom:1px solid rgba(255,255,255,.08)}
+      .compat td{padding:6px 0}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top">
+        <img src="./assets/favicon.svg" alt="">
+        <strong>Nano Banana Image Skill</strong>
+      </a>
+      <div class="links">
+        <a href="#models">Models</a>
+        <a href="#features">Features</a>
+        <a href="#compatibility">Compatibility</a>
+        <a href="#examples">Examples</a>
+        <a href="#install">Install</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top" class="shell">
+    <section class="hero">
+      <img src="./assets/hero.svg" alt="Hero banner for the Nano Banana Image Skill">
+      <div class="intro">
+        <div class="lead">
+          <span class="eyebrow">Portable • Modular • GitHub-ready • Agent-friendly</span>
+          <h1>Prompting that behaves like a system, not a pile of adjectives.</h1>
+          <p>
+            This repository packages a production-ready image skill for Gemini’s Nano Banana image models.
+            It interviews with restraint, grounds the scene, routes style intelligently, preserves identity during edits,
+            and emits clean runtime JSON for downstream apps or agents.
+          </p>
+          <p class="mini" style="margin-top:14px">
+            In the repository root, the canonical files are <code>SKILL.md</code>, <code>README.md</code>,
+            <code>AGENTS.md</code>, <code>CLAUDE.md</code>, and <code>GEMINI.md</code>.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="#features">Tour features</a>
+            <a class="btn secondary" href="#compatibility">Compatibility</a>
+            <a class="btn secondary" href="#install">Installation paths</a>
+          </div>
+        </div>
+        <div class="callout">
+          <div class="stats">
+            <div class="stat">
+              <strong>20+</strong>
+              <span>core guidance modules</span>
+            </div>
+            <div class="stat">
+              <strong>30+</strong>
+              <span>style, profile, platform, and overlay modules</span>
+            </div>
+            <div class="stat">
+              <strong>5</strong>
+              <span>validated authoring + runtime example pairs</span>
+            </div>
+            <div class="stat">
+              <strong>4</strong>
+              <span>agent entrypoints: SKILL, AGENTS, CLAUDE, GEMINI</span>
+            </div>
+          </div>
+          <p style="margin-top:16px">
+            The repo also ships a static front-end, SVG artwork, a compiler script, a validator, JSON Schemas,
+            and a CI workflow. Neatly engineered, rather than held together with vibes and string.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="models">
+      <div class="section-head">
+        <div>
+          <h2>Model lanes</h2>
+        </div>
+        <p>
+          The skill keeps the target model explicit so an agent can pick speed or precision on purpose
+          instead of tossing prompts into the void and hoping for enlightened banana magic.
+        </p>
+      </div>
+      <div class="grid three models">
+        <article class="card">
+          <span class="pill">Fast lane</span>
+          <h3>Nano Banana 2</h3>
+          <p><code>gemini-3.1-flash-image-preview</code></p>
+          <ul class="clean">
+            <li>Fast concept iteration</li>
+            <li>Variant batches and quick edits</li>
+            <li>Responsive ideation loops</li>
+          </ul>
+        </article>
+        <article class="card">
+          <span class="pill">Precision lane</span>
+          <h3>Nano Banana Pro</h3>
+          <p><code>gemini-3-pro-image-preview</code></p>
+          <ul class="clean">
+            <li>Typography-heavy layouts</li>
+            <li>Infographics and poster systems</li>
+            <li>Strict preservation edits</li>
+          </ul>
+        </article>
+        <article class="card">
+          <span class="pill">Legacy light path</span>
+          <h3>Nano Banana</h3>
+          <p><code>gemini-2.5-flash-image</code></p>
+          <ul class="clean">
+            <li>Lightweight tasks</li>
+            <li>Simple generation or edit flows</li>
+            <li>Compatibility fallback</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="section-head">
+        <div><h2>What the skill actually does</h2></div>
+        <p>
+          It is not just “prompt tips.” It is a full workflow spine with modular files for interviewing,
+          grounding, preservation, typography, style routing, and runtime handoff.
+        </p>
+      </div>
+      <div class="grid four">
+        <article class="card">
+          <span class="pill">Interview</span>
+          <h3>Ask less, get more</h3>
+          <p>Collect only the missing high-value constraints. No bureaucratic questionnaire cosplay.</p>
+        </article>
+        <article class="card">
+          <span class="pill">Grounding</span>
+          <h3>Reality before ornament</h3>
+          <p>Anchor era, geography, materials, props, and world logic so scenes behave coherently.</p>
+        </article>
+        <article class="card">
+          <span class="pill">Preservation</span>
+          <h3>Edits with memory</h3>
+          <p>Lock geometry, crop, identity, and labels before describing changes, so edits stay surgical.</p>
+        </article>
+        <article class="card">
+          <span class="pill">Compiler</span>
+          <h3>Prompt + JSON</h3>
+          <p>Emit readable prompts and validated runtime payloads instead of improvised blob-text.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="grid two">
+        <article class="card image-card">
+          <img src="./assets/constellation.svg" alt="Constellation diagram of the skill architecture">
+        </article>
+        <article class="card image-card">
+          <img src="./assets/flow.svg" alt="Flow diagram from interview to runtime JSON">
+        </article>
+      </div>
+    </section>
+
+    <section id="compatibility" class="compat">
+      <div class="section-head">
+        <div><h2>Compatibility strategy</h2></div>
+        <p>
+          Different agent ecosystems discover instructions differently, so the repo carries multiple entrypoints without duplicating the real logic.
+        </p>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Client style</th>
+            <th>Primary file</th>
+            <th>Repo behavior</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Open Agent Skills / skill-aware agents</td>
+            <td><code>SKILL.md</code></td>
+            <td>Canonical root entrypoint with modular references.</td>
+          </tr>
+          <tr>
+            <td>AGENTS-style project guidance</td>
+            <td><code>AGENTS.md</code></td>
+            <td>Points the agent to the canonical skill and repo workflow.</td>
+          </tr>
+          <tr>
+            <td>Claude Code memory</td>
+            <td><code>CLAUDE.md</code></td>
+            <td>Loads concise repo-specific memory without replacing the skill.</td>
+          </tr>
+          <tr>
+            <td>Gemini CLI memory</td>
+            <td><code>GEMINI.md</code></td>
+            <td>Imports the canonical skill and references supporting files.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="examples">
+      <div class="section-head">
+        <div><h2>Example scenarios</h2></div>
+        <p>
+          The examples are paired: a rich authoring brief plus a compact runtime payload.
+          That makes the pack useful both for planners and for direct model calls.
+        </p>
+      </div>
+      <div class="grid three">
+        <article class="card">
+          <span class="pill">Portrait</span>
+          <h3>Night market editorial</h3>
+          <p>Photoreal singer portrait with smartphone-night capture cues and social-ready framing.</p>
+        </article>
+        <article class="card">
+          <span class="pill">Poster</span>
+          <h3>Edo spring festival</h3>
+          <p>Readable title hierarchy, ukiyo-e rhythm, and controlled title-safe negative space.</p>
+        </article>
+        <article class="card">
+          <span class="pill">Product edit</span>
+          <h3>Bottle relight + background swap</h3>
+          <p>Preservation-heavy campaign upgrade with jewel-toned marble and tight label fidelity.</p>
+        </article>
+        <article class="card">
+          <span class="pill">VFX shot</span>
+          <h3>Drone establishing frame</h3>
+          <p>Airborne sci-fi city shot with plate-aware realism and atmospheric depth.</p>
+        </article>
+        <article class="card">
+          <span class="pill">Infographic</span>
+          <h3>Exoplanet classroom board</h3>
+          <p>Modular panels, labels, and clean educational hierarchy using a stylized 3D language.</p>
+        </article>
+        <article class="card">
+          <span class="pill">Schemas</span>
+          <h3>Authoring + runtime</h3>
+          <p>Rich planning JSON up front; compact execution JSON at the handoff point.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="install">
+      <div class="section-head">
+        <div><h2>Install patterns</h2></div>
+        <p>
+          The repository is structured so you can clone it as-is, symlink it, or drop it into a project-local skills folder.
+        </p>
+      </div>
+      <div class="grid two">
+        <article class="card">
+          <span class="pill">Codex / skill-aware clients</span>
+<pre>mkdir -p ~/.agents/skills
+ln -s /path/to/nano-banana-image-skill   ~/.agents/skills/nano-banana-image-skill</pre>
+        </article>
+        <article class="card">
+          <span class="pill">Claude Code</span>
+<pre>mkdir -p ~/.claude/skills
+cp -R nano-banana-image-skill   ~/.claude/skills/</pre>
+        </article>
+        <article class="card">
+          <span class="pill">Gemini CLI</span>
+<pre># cleanest option
+open the full repository as a workspace
+
+# if transplanting memory,
+# copy GEMINI.md + SKILL.md + referenced folders</pre>
+        </article>
+        <article class="card">
+          <span class="pill">GitHub Pages</span>
+<pre>Settings → Pages → Deploy from a branch
+Branch: main
+Folder: /docs</pre>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div><h2>Validation + CI</h2></div>
+        <p>
+          The pack ships with <code>scripts/validate_repo.py</code>, a runtime compiler script, and a GitHub Actions workflow.
+          That makes it much harder for quiet schema drift to sneak in and wreck the examples like a raccoon in a pantry.
+        </p>
+      </div>
+      <div class="grid two">
+        <article class="card">
+<pre>python scripts/validate_repo.py</pre>
+        </article>
+        <article class="card">
+<pre>python scripts/compile_runtime.py   examples/authoring/poster-edo-festival-text.json   -o /tmp/poster.runtime.json</pre>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="card">
+        <div>
+          <h3>Elegant on the outside, modular on the inside.</h3>
+          <p class="mini">Built by <a href="https://github.com/Emily2040" style="color:var(--aqua);text-decoration:none">Iamemily2050</a> — a GitHub-ready skill pack with SVG front-end, examples, schemas, and cross-agent entrypoints.</p>
+          <p class="mini" style="margin-top:8px">
+            <a href="https://github.com/Emily2040" style="color:var(--muted);text-decoration:none;margin-right:14px">GitHub</a>
+            <a href="https://Iamemily2050.com" style="color:var(--muted);text-decoration:none;margin-right:14px">Website</a>
+            <a href="https://x.com/iamemily2050" style="color:var(--muted);text-decoration:none;margin-right:14px">X</a>
+            <a href="https://instagram.com/iamemily2050" style="color:var(--muted);text-decoration:none">Instagram</a>
+          </p>
+        </div>
+        <div class="cta-row">
+          <a class="btn primary" href="#examples">Example scenarios</a>
+          <a class="btn secondary" href="#install">Install paths</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,64 @@
+{
+  "version": "1.0.0",
+  "generate": [
+    "What is the main subject?",
+    "What is the subject doing?",
+    "Where is the scene set?",
+    "What style family should dominate: anime, manga, photoreal, stylized 3D, or realistic 3D?",
+    "Do you want fast iteration or maximum fidelity?",
+    "What aspect ratio do you need?",
+    "Is there any text inside the image?",
+    "What absolutely must be visible?",
+    "What should never appear?",
+    "Should the camera feel intimate, neutral, or epic?"
+  ],
+  "edit": [
+    "What must remain unchanged?",
+    "What is the single most important change?",
+    "Do you have a source image or multiple references?",
+    "Should the crop and camera angle stay locked?",
+    "Should lighting stay the same or change too?",
+    "Are there brand marks or labels that must remain exact?",
+    "Do you want a subtle edit or a dramatic transformation?"
+  ],
+  "text_in_image": [
+    "What exact copy must appear?",
+    "What is the headline, subhead, and body hierarchy?",
+    "What language should the text be in?",
+    "How much empty space should be reserved for type?",
+    "Should the type feel elegant, bold, playful, technical, or editorial?",
+    "Does any legal copy or sponsor block need guaranteed space?"
+  ],
+  "product": [
+    "Is the product geometry locked?",
+    "Do label text and colors need to stay exact?",
+    "Should the finish read matte, satin, glossy, frosted, metallic, or translucent?",
+    "Is this ecommerce-clean, luxury editorial, or dramatic campaign lighting?",
+    "Do you want a cutout background or environmental setting?"
+  ],
+  "portrait": [
+    "How much identity consistency matters?",
+    "What age range, styling, and wardrobe cues matter?",
+    "What expression and pose should dominate?",
+    "Do you want clean studio light, available light, or dramatic cinematic light?",
+    "Should skin texture feel polished, natural, or documentary?"
+  ],
+  "historical_or_cultural": [
+    "What era and geography should be respected?",
+    "Which details must be historically or culturally grounded?",
+    "Should the work feel museum-faithful or creatively inspired by the tradition?",
+    "What materials, garments, architecture, or motifs are essential?"
+  ],
+  "continuity": [
+    "What must remain constant across every frame?",
+    "What is allowed to change between variants?",
+    "Do you have a hero reference frame?",
+    "Are there color, emblem, costume, or silhouette locks?"
+  ],
+  "fallback_defaults": [
+    "If the user does not care about platform, default to the profile's natural aspect ratio.",
+    "If the user does not care about style, prefer the most direct interpretation of the requested profile.",
+    "If the user asks for text but gives no hierarchy, assume headline > subhead > support copy.",
+    "If the user asks for an edit but gives no preservation list, lock geometry, crop, identity, and key materials by default."
+  ]
+}

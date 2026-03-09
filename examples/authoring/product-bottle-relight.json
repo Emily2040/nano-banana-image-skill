@@ -1,0 +1,175 @@
+{
+  "schema_version": "1.0.0",
+  "task": "edit",
+  "model_target": {
+    "family": "nano-banana-pro",
+    "api_model": "gemini-3-pro-image-preview",
+    "reason": "Strict product preservation and label fidelity need a careful edit path."
+  },
+  "intent": {
+    "goal": "Upgrade a clean packshot into a premium campaign still without changing the product identity",
+    "audience": "luxury skincare buyers",
+    "use_case": "campaign still",
+    "platform": "instagram-post",
+    "tone": "premium, calm, jewel-toned, tactile"
+  },
+  "subject": {
+    "primary": "frosted glass skincare bottle",
+    "count": 1,
+    "descriptors": [
+      "cylindrical",
+      "silver cap",
+      "centered label",
+      "minimal design"
+    ],
+    "action": "standing still on a tabletop surface",
+    "identity_lock": true,
+    "pose": "front-facing with slight three-quarter cap turn",
+    "expression": "n/a"
+  },
+  "scene": {
+    "setting": "studio tabletop product setup",
+    "era": "contemporary",
+    "geography": "n/a",
+    "weather": "none",
+    "time_of_day": "studio controlled",
+    "background": "currently matte gray, to be replaced",
+    "environment_logic": [
+      "the bottle silhouette and front-facing label must remain exact",
+      "the new background may influence color bounce but not geometry",
+      "the tabletop reflection and shadow anchor should remain believable"
+    ]
+  },
+  "composition": {
+    "shot_type": "product hero still",
+    "framing": "centered bottle with comfortable breathing room",
+    "camera_angle": "eye-level to product shoulder",
+    "lens_equivalent_mm": 90,
+    "depth_behavior": "sharp focus on label plane with soft falloff behind",
+    "negative_space": "clean upper area for possible campaign wordmark",
+    "aspect_ratio": "1:1",
+    "motion": "static studio setup"
+  },
+  "lighting": {
+    "key": "large soft top-front source maintaining premium packshot clarity",
+    "fill": "restrained frontal return",
+    "rim": "narrow teal edge from back right",
+    "practicals": [],
+    "atmosphere": "clear studio air",
+    "material_response": [
+      "frosted glass diffusion",
+      "satin paper label",
+      "brushed silver cap"
+    ],
+    "color_temperature": "neutral key with jewel-toned rim accent"
+  },
+  "style": {
+    "family": "photoreal",
+    "palette": [
+      "emerald",
+      "silver",
+      "soft neutral white"
+    ],
+    "texture": "clean premium photography",
+    "mood": "quiet luxury",
+    "influences": [
+      {
+        "source": "luxury skincare advertising",
+        "traits": [
+          "restrained reflections",
+          "calm spacing",
+          "premium material emphasis"
+        ]
+      }
+    ]
+  },
+  "text_overlay": {
+    "enabled": false,
+    "copy": [],
+    "placement": "none",
+    "safe_margins": "none",
+    "language": "en"
+  },
+  "edit": {
+    "source_images": [
+      {
+        "id": "src-product-packshot-001",
+        "role": "primary",
+        "notes": "source packshot to preserve"
+      },
+      {
+        "id": "ref-emerald-marble-001",
+        "role": "material",
+        "notes": "wet emerald marble surface inspiration only"
+      }
+    ],
+    "preserve": [
+      "exact bottle silhouette",
+      "cap alignment",
+      "label geometry and text",
+      "camera angle and crop",
+      "tabletop reflection",
+      "shadow footprint"
+    ],
+    "change": [
+      "replace matte gray background with wet emerald marble",
+      "add narrow teal rim light from back right",
+      "keep the overall lighting premium and controlled"
+    ],
+    "mask_hint": "background replacement should avoid touching bottle edges or label plane",
+    "delta_priority": "preservation first, environment second, lighting accent third"
+  },
+  "constraints": {
+    "must_include": [
+      "label fully readable",
+      "premium jewel-toned backdrop",
+      "controlled reflections"
+    ],
+    "must_avoid": [
+      "bottle geometry drift",
+      "extra props",
+      "warped label text"
+    ],
+    "banned_terms": [
+      "masterpiece",
+      "award-winning"
+    ],
+    "accessibility": [
+      "clear object-background separation"
+    ],
+    "continuity_priority": "high"
+  },
+  "safety": {
+    "person_likeness": "none",
+    "brand_marks": "preserve fictional provided label only",
+    "copyright": "source image assumed user-provided",
+    "violence": "none",
+    "sexual_content": "none",
+    "minors": "none",
+    "policy_notes": [
+      "maintain truthful product appearance except for art-directed environment changes"
+    ]
+  },
+  "output": {
+    "profile": "product",
+    "platform": "instagram-post",
+    "image_count": 1,
+    "background": "environmental studio marble",
+    "size_tier": "2K",
+    "file_naming": "product-bottle-relight",
+    "transparent_background": false
+  },
+  "compiler": {
+    "token_budget_profile": "edit-delta",
+    "slop_scrub_level": "strict"
+  },
+  "interview": {
+    "needed": false,
+    "answered": [
+      "preservation list",
+      "background target",
+      "lighting change"
+    ],
+    "missing": []
+  }
+}

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 520" role="img" aria-labelledby="title desc">
+  <title id="title">Runtime flow</title>
+  <desc id="desc">Five-step process from interview to runtime JSON.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a1020"/>
+      <stop offset="100%" stop-color="#181230"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" x2="1">
+      <stop offset="0%" stop-color="#7ce8ff" />
+      <stop offset="100%" stop-color="#ff91df" />
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="520" rx="24" fill="url(#bg)"/>
+  <path d="M160 260H1120" stroke="url(#line)" stroke-width="6" stroke-linecap="round"/>
+  <g font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+    <g transform="translate(160 260)">
+      <circle r="38" fill="#7ce8ff"/>
+      <text y="7" text-anchor="middle" font-size="28" font-weight="700" fill="#082032">1</text>
+      <text y="86" text-anchor="middle" font-size="20" font-weight="700" fill="#eef9ff">Interview</text>
+      <text y="114" text-anchor="middle" font-size="15" fill="#c9dfff">ask only what is missing</text>
+    </g>
+    <g transform="translate(400 260)">
+      <circle r="38" fill="#8be1ff"/>
+      <text y="7" text-anchor="middle" font-size="28" font-weight="700" fill="#082032">2</text>
+      <text y="86" text-anchor="middle" font-size="20" font-weight="700" fill="#eef9ff">Ground</text>
+      <text y="114" text-anchor="middle" font-size="15" fill="#c9dfff">world, era, materials, logic</text>
+    </g>
+    <g transform="translate(640 260)">
+      <circle r="38" fill="#ffd487"/>
+      <text y="7" text-anchor="middle" font-size="28" font-weight="700" fill="#3b2200">3</text>
+      <text y="86" text-anchor="middle" font-size="20" font-weight="700" fill="#eef9ff">Route</text>
+      <text y="114" text-anchor="middle" font-size="15" fill="#c9dfff">style, profile, platform</text>
+    </g>
+    <g transform="translate(880 260)">
+      <circle r="38" fill="#ff9dde"/>
+      <text y="7" text-anchor="middle" font-size="28" font-weight="700" fill="#42112b">4</text>
+      <text y="86" text-anchor="middle" font-size="20" font-weight="700" fill="#eef9ff">Compile</text>
+      <text y="114" text-anchor="middle" font-size="15" fill="#c9dfff">prompt, preserve, avoid</text>
+    </g>
+    <g transform="translate(1120 260)">
+      <circle r="38" fill="#c6a4ff"/>
+      <text y="7" text-anchor="middle" font-size="28" font-weight="700" fill="#220a46">5</text>
+      <text y="86" text-anchor="middle" font-size="20" font-weight="700" fill="#eef9ff">Emit</text>
+      <text y="114" text-anchor="middle" font-size="15" fill="#c9dfff">runtime JSON</text>
+    </g>
+  </g>
+  <text x="56" y="72" fill="#f2f7ff" font-size="34" font-weight="700" font-family="Inter, ui-sans-serif, system-ui, sans-serif">From vague request to runnable payload</text>
+  <text x="56" y="108" fill="#c4d9ff" font-size="18" font-family="Inter, ui-sans-serif, system-ui, sans-serif">The skill stays modular, but the runtime handoff stays compact.</text>
+</svg>

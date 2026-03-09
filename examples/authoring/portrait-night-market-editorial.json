@@ -1,0 +1,159 @@
+{
+  "schema_version": "1.0.0",
+  "task": "generate",
+  "model_target": {
+    "family": "nano-banana-2",
+    "api_model": "gemini-3.1-flash-image-preview",
+    "reason": "Fast concept iteration for a photoreal editorial portrait without dense typography."
+  },
+  "intent": {
+    "goal": "Create a moody editorial portrait for a music artist social campaign",
+    "audience": "indie pop listeners and art-forward social audiences",
+    "use_case": "single artwork social post",
+    "platform": "instagram-post",
+    "tone": "cool, intimate, rain-lit, quietly futuristic"
+  },
+  "subject": {
+    "primary": "synth-pop singer",
+    "count": 1,
+    "descriptors": [
+      "late-20s",
+      "confident",
+      "rain-damp",
+      "sleek black nylon jacket"
+    ],
+    "action": "pausing beneath market awnings after stepping out of the rain",
+    "identity_lock": false,
+    "pose": "waist-up, one hand lightly touching the awning edge",
+    "expression": "focused with a slight half-smile",
+    "wardrobe": "black nylon bomber with silver zipper and small in-ear monitor"
+  },
+  "scene": {
+    "setting": "narrow covered night-market alley",
+    "era": "contemporary near-future",
+    "geography": "dense East Asian commercial district",
+    "weather": "light rain just ending",
+    "time_of_day": "midnight",
+    "background": "stacked vendor signs, reflective tarps, damp concrete, distant umbrellas",
+    "environment_logic": [
+      "wet surfaces should catch mixed warm and cool practical light",
+      "crowd presence should be implied in the distance but not cross the foreground",
+      "the alley should remain spatially plausible and human-scaled"
+    ]
+  },
+  "composition": {
+    "shot_type": "editorial portrait",
+    "framing": "waist-up with the face occupying the upper-center focal zone",
+    "camera_angle": "slightly low and intimate",
+    "lens_equivalent_mm": 50,
+    "depth_behavior": "shallow but readable depth with soft background separation",
+    "negative_space": "soft upper-left pocket for possible future cover lines",
+    "aspect_ratio": "4:5",
+    "motion": "stable observational framing"
+  },
+  "lighting": {
+    "key": "warm tungsten stall light from camera right",
+    "fill": "cool cyan ambient bounce from the alley",
+    "rim": "thin magenta edge on the jacket shoulder and hairline",
+    "practicals": [
+      "vendor lanterns",
+      "small LED sign spill",
+      "reflected puddle light"
+    ],
+    "atmosphere": "fine rain mist catching highlights without becoming heavy fog",
+    "material_response": [
+      "wet nylon highlights",
+      "natural damp skin sheen",
+      "soft reflections on metal zipper teeth"
+    ],
+    "color_temperature": "warm key versus cool ambient contrast"
+  },
+  "style": {
+    "family": "photoreal",
+    "genre": "sci-fi",
+    "capture": "iphone-night-mode",
+    "render_features": [
+      "volumetric-lighting"
+    ],
+    "palette": [
+      "cyan",
+      "amber",
+      "magenta accents",
+      "charcoal black"
+    ],
+    "texture": "clean but not over-sharpened smartphone-night realism",
+    "mood": "intimate nocturnal electricity",
+    "influences": [
+      {
+        "source": "editorial music photography",
+        "traits": [
+          "confident face-first framing",
+          "rain sheen",
+          "available light authenticity"
+        ]
+      }
+    ]
+  },
+  "text_overlay": {
+    "enabled": false,
+    "copy": [],
+    "placement": "none",
+    "safe_margins": "none",
+    "language": "en"
+  },
+  "constraints": {
+    "must_include": [
+      "face clearly readable",
+      "visible rain-wet materials",
+      "market practicals and signs"
+    ],
+    "must_avoid": [
+      "foreground crowd occlusion",
+      "heavy cyberpunk armor",
+      "unreadable sign clutter"
+    ],
+    "banned_terms": [
+      "masterpiece",
+      "best quality"
+    ],
+    "accessibility": [
+      "strong face contrast",
+      "clear focal separation"
+    ],
+    "continuity_priority": "medium"
+  },
+  "safety": {
+    "person_likeness": "fictional performer only",
+    "brand_marks": "avoid prominent real logos",
+    "copyright": "original image only",
+    "violence": "none",
+    "sexual_content": "none",
+    "minors": "no minors",
+    "policy_notes": [
+      "keep scene non-violent and non-defamatory"
+    ]
+  },
+  "output": {
+    "profile": "portrait",
+    "platform": "instagram-post",
+    "image_count": 1,
+    "background": "environmental",
+    "size_tier": "2K",
+    "file_naming": "portrait-night-market-editorial",
+    "transparent_background": false
+  },
+  "compiler": {
+    "token_budget_profile": "generate-complex",
+    "slop_scrub_level": "standard"
+  },
+  "interview": {
+    "needed": false,
+    "answered": [
+      "subject",
+      "style family",
+      "platform",
+      "mood"
+    ],
+    "missing": []
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0.0",
+  "mode": "generate",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Create a infographic for Create a clean classroom-ready infographic comparing major exoplanet classes. Subject: comparison of exoplanet classes — hot Jupiter, super-Earth, mini-Neptune, water world, rocky Earth-like; arranged as a clear comparative panel system; five labeled modules; n/a. Scene: clean educational space backdrop, contemporary science communication, n/a, n/a, n/a, soft dark space field with restrained stars and clean grid logic. World logic: panel readability must dominate over spectacle, labels should sit near the corresponding planet modules, the backdrop should support contrast without clutter. Composition: educational infographic, wide horizontal modular layout with title at top and five comparison panels below, orthographic-inspired flat presentation, 35mm lens feel, minimal perspective distortion for clarity, none, negative space: clean top band and gutters between panels, aspect ratio 16:9. Lighting: key light: soft even panel lighting, fill: balanced diffuse illumination, rim: subtle edge glow on planet icons only, clean digital clarity without heavy bloom, material response: smooth stylized planet surfaces, flat label panels, gentle icon highlights, neutral-cool educational palette. Style stack: stylized-3d, sci-fi, infographic, text-in-image, friendly clean explainer rendering, curious and clear, palette: deep navy, teal, gold accents, warm coral highlights, soft white, museum science graphics traits: modular spacing, trustworthy labels, gentle depth without clutter. On-image text: headline: Exoplanet Classes at a Glance; label: Hot Jupiter; label: Super-Earth; label: Mini-Neptune; label: Water World; label: Rocky Earth-like; body: Compare size, atmosphere, and likely composition.. Text layout: headline in top band, one label per planet panel, body line under title, 6% outer margins with strong gutters between modules, en. Must include: five distinct planet modules, clear labels near each module, classroom-ready hierarchy. Avoid: dense star clutter, tiny unreadable labels, overly dramatic cinematic lighting. Accessibility: high contrast text, clear color separation between modules.",
+  "avoid": [
+    "dense star clutter",
+    "tiny unreadable labels",
+    "overly dramatic cinematic lighting"
+  ],
+  "aspect_ratio": "16:9",
+  "image_size": "2K",
+  "profile": "infographic",
+  "metadata": {
+    "family": "stylized-3d",
+    "platform": "none",
+    "style_stack": [
+      "stylized-3d",
+      "sci-fi",
+      "infographic",
+      "text-in-image"
+    ],
+    "notes": [
+      "Infographic output with explicit labels and hierarchy benefits from the premium text-capable model.",
+      "educational poster slide"
+    ]
+  },
+  "text_overlay": {
+    "enabled": true,
+    "blocks": [
+      {
+        "role": "headline",
+        "text": "Exoplanet Classes at a Glance",
+        "priority": 10
+      },
+      {
+        "role": "label",
+        "text": "Hot Jupiter",
+        "priority": 8
+      },
+      {
+        "role": "label",
+        "text": "Super-Earth",
+        "priority": 8
+      },
+      {
+        "role": "label",
+        "text": "Mini-Neptune",
+        "priority": 8
+      },
+      {
+        "role": "label",
+        "text": "Water World",
+        "priority": 8
+      },
+      {
+        "role": "label",
+        "text": "Rocky Earth-like",
+        "priority": 8
+      },
+      {
+        "role": "body",
+        "text": "Compare size, atmosphere, and likely composition.",
+        "priority": 6
+      }
+    ],
+    "safe_margins": "6% outer margins with strong gutters between modules"
+  }
+}

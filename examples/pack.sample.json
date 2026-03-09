@@ -1,0 +1,41 @@
+{
+  "name": "nano-banana-image-skill",
+  "version": "1.0.0",
+  "description": "Portable skill pack for Gemini image prompting and editing.",
+  "entrypoints": {
+    "skill": "SKILL.md",
+    "agents": "AGENTS.md",
+    "claude": "CLAUDE.md",
+    "gemini": "GEMINI.md",
+    "readme": "README.md",
+    "site": "docs/index.html"
+  },
+  "targets": {
+    "models": [
+      "gemini-3-pro-image-preview",
+      "gemini-3.1-flash-image-preview",
+      "gemini-2.5-flash-image"
+    ],
+    "agents": [
+      "codex",
+      "claude-code",
+      "gemini-cli",
+      "antigravity",
+      "other-agents-md-clients"
+    ]
+  },
+  "directories": {
+    "schemas": "schemas",
+    "registry": "registry",
+    "skills": "skills",
+    "examples": "examples",
+    "scripts": "scripts",
+    "docs": "docs"
+  },
+  "quality_gates": [
+    "jsonschema validation",
+    "example validation",
+    "static docs",
+    "cross-agent entrypoints"
+  ]
+}

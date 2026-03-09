@@ -1,0 +1,102 @@
+{
+  "version": "1.0.0",
+  "note": "These are skill-side authoring budgets, not model context limits.",
+  "profiles": {
+    "nano-banana-pro": {
+      "generate-simple": {
+        "target_words": 140,
+        "max_words": 220,
+        "cut_order": [
+          "extra adjectives",
+          "secondary props",
+          "redundant mood words"
+        ]
+      },
+      "generate-complex": {
+        "target_words": 240,
+        "max_words": 360,
+        "cut_order": [
+          "minor background lore",
+          "duplicate styling",
+          "low-priority props"
+        ]
+      },
+      "poster-or-infographic": {
+        "target_words": 280,
+        "max_words": 420,
+        "cut_order": [
+          "non-critical atmosphere",
+          "excess palette notes",
+          "redundant composition phrasing"
+        ]
+      },
+      "edit-delta": {
+        "target_words": 120,
+        "max_words": 200,
+        "cut_order": [
+          "restate unchanged scene",
+          "duplicate preserve phrases",
+          "weak intensifiers"
+        ]
+      }
+    },
+    "nano-banana-2": {
+      "generate-simple": {
+        "target_words": 120,
+        "max_words": 180,
+        "cut_order": [
+          "mood flourishes",
+          "secondary texture notes",
+          "extra adjectives"
+        ]
+      },
+      "generate-complex": {
+        "target_words": 180,
+        "max_words": 280,
+        "cut_order": [
+          "background lore",
+          "secondary lighting flourishes",
+          "third-order style notes"
+        ]
+      },
+      "poster-or-infographic": {
+        "target_words": 220,
+        "max_words": 320,
+        "cut_order": [
+          "ornamental scene notes",
+          "extra style tags",
+          "redundant hierarchy phrases"
+        ]
+      },
+      "edit-delta": {
+        "target_words": 100,
+        "max_words": 160,
+        "cut_order": [
+          "whole-scene restatement",
+          "duplicate preserve locks",
+          "decorative phrasing"
+        ]
+      }
+    },
+    "nano-banana": {
+      "generate-simple": {
+        "target_words": 100,
+        "max_words": 150,
+        "cut_order": [
+          "ambient detail",
+          "mood words",
+          "secondary props"
+        ]
+      },
+      "edit-delta": {
+        "target_words": 90,
+        "max_words": 140,
+        "cut_order": [
+          "whole-scene restatement",
+          "duplicate lighting notes",
+          "low-value texture cues"
+        ]
+      }
+    }
+  }
+}

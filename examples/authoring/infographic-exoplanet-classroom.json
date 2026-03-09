@@ -1,0 +1,193 @@
+{
+  "schema_version": "1.0.0",
+  "task": "generate",
+  "model_target": {
+    "family": "nano-banana-pro",
+    "api_model": "gemini-3-pro-image-preview",
+    "reason": "Infographic output with explicit labels and hierarchy benefits from the premium text-capable model."
+  },
+  "intent": {
+    "goal": "Create a clean classroom-ready infographic comparing major exoplanet classes",
+    "audience": "middle school students and science teachers",
+    "use_case": "educational poster slide",
+    "platform": "none",
+    "tone": "curious, trustworthy, approachable"
+  },
+  "subject": {
+    "primary": "comparison of exoplanet classes",
+    "count": 5,
+    "descriptors": [
+      "hot Jupiter",
+      "super-Earth",
+      "mini-Neptune",
+      "water world",
+      "rocky Earth-like"
+    ],
+    "action": "arranged as a clear comparative panel system",
+    "identity_lock": false,
+    "pose": "five labeled modules",
+    "expression": "n/a",
+    "props": [
+      "small icon callouts",
+      "orbit markers",
+      "simple scale cues"
+    ]
+  },
+  "scene": {
+    "setting": "clean educational space backdrop",
+    "era": "contemporary science communication",
+    "geography": "n/a",
+    "weather": "n/a",
+    "time_of_day": "n/a",
+    "background": "soft dark space field with restrained stars and clean grid logic",
+    "environment_logic": [
+      "panel readability must dominate over spectacle",
+      "labels should sit near the corresponding planet modules",
+      "the backdrop should support contrast without clutter"
+    ]
+  },
+  "composition": {
+    "shot_type": "educational infographic",
+    "framing": "wide horizontal modular layout with title at top and five comparison panels below",
+    "camera_angle": "orthographic-inspired flat presentation",
+    "lens_equivalent_mm": 35,
+    "depth_behavior": "minimal perspective distortion for clarity",
+    "negative_space": "clean top band and gutters between panels",
+    "aspect_ratio": "16:9",
+    "motion": "none"
+  },
+  "lighting": {
+    "key": "soft even panel lighting",
+    "fill": "balanced diffuse illumination",
+    "rim": "subtle edge glow on planet icons only",
+    "practicals": [],
+    "atmosphere": "clean digital clarity without heavy bloom",
+    "material_response": [
+      "smooth stylized planet surfaces",
+      "flat label panels",
+      "gentle icon highlights"
+    ],
+    "color_temperature": "neutral-cool educational palette"
+  },
+  "style": {
+    "family": "stylized-3d",
+    "genre": "sci-fi",
+    "palette": [
+      "deep navy",
+      "teal",
+      "gold accents",
+      "warm coral highlights",
+      "soft white"
+    ],
+    "texture": "friendly clean explainer rendering",
+    "mood": "curious and clear",
+    "influences": [
+      {
+        "source": "museum science graphics",
+        "traits": [
+          "modular spacing",
+          "trustworthy labels",
+          "gentle depth without clutter"
+        ]
+      }
+    ]
+  },
+  "text_overlay": {
+    "enabled": true,
+    "copy": [
+      {
+        "role": "headline",
+        "text": "Exoplanet Classes at a Glance",
+        "priority": 10
+      },
+      {
+        "role": "label",
+        "text": "Hot Jupiter",
+        "priority": 8
+      },
+      {
+        "role": "label",
+        "text": "Super-Earth",
+        "priority": 8
+      },
+      {
+        "role": "label",
+        "text": "Mini-Neptune",
+        "priority": 8
+      },
+      {
+        "role": "label",
+        "text": "Water World",
+        "priority": 8
+      },
+      {
+        "role": "label",
+        "text": "Rocky Earth-like",
+        "priority": 8
+      },
+      {
+        "role": "body",
+        "text": "Compare size, atmosphere, and likely composition.",
+        "priority": 6
+      }
+    ],
+    "placement": "headline in top band, one label per planet panel, body line under title",
+    "safe_margins": "6% outer margins with strong gutters between modules",
+    "language": "en"
+  },
+  "constraints": {
+    "must_include": [
+      "five distinct planet modules",
+      "clear labels near each module",
+      "classroom-ready hierarchy"
+    ],
+    "must_avoid": [
+      "dense star clutter",
+      "tiny unreadable labels",
+      "overly dramatic cinematic lighting"
+    ],
+    "banned_terms": [
+      "masterpiece",
+      "best quality"
+    ],
+    "accessibility": [
+      "high contrast text",
+      "clear color separation between modules"
+    ],
+    "continuity_priority": "low"
+  },
+  "safety": {
+    "person_likeness": "none",
+    "brand_marks": "none",
+    "copyright": "original educational visualization",
+    "violence": "none",
+    "sexual_content": "none",
+    "minors": "none",
+    "policy_notes": [
+      "educational claims should remain generic and not present false precision"
+    ]
+  },
+  "output": {
+    "profile": "infographic",
+    "platform": "none",
+    "image_count": 1,
+    "background": "integrated panel background",
+    "size_tier": "2K",
+    "file_naming": "infographic-exoplanet-classroom",
+    "transparent_background": false
+  },
+  "compiler": {
+    "token_budget_profile": "poster-or-infographic",
+    "slop_scrub_level": "strict"
+  },
+  "interview": {
+    "needed": false,
+    "answered": [
+      "audience",
+      "module count",
+      "headline",
+      "educational tone"
+    ],
+    "missing": []
+  }
+}
