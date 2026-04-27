@@ -71,7 +71,7 @@ def _compile_prompt(authoring: Dict[str, Any]) -> str:
     text_overlay = authoring.get("text_overlay", {})
 
     deliverable = output["profile"].replace("-", " ")
-    image_goal = intent["goal"]
+    image_goal = (intent["goal"] or "").strip()
 
     subject_bits = _nonempty([
         subject.get("primary"),
@@ -132,7 +132,22 @@ def _compile_prompt(authoring: Dict[str, Any]) -> str:
                 style_bits.append(f"{source} traits: {traits}")
 
     sentences: List[str] = []
-    opener = f"Create a {deliverable} for {image_goal}."
+    normalized_goal = image_goal.rstrip(".")
+    lower_goal = normalized_goal.lower()
+    starts_with_creation_verb = lower_goal.startswith(("create ", "generate ", "make "))
+    if lower_goal.startswith("create "):
+        normalized_goal = normalized_goal[7:].strip()
+    elif lower_goal.startswith("generate "):
+        normalized_goal = normalized_goal[9:].strip()
+    elif lower_goal.startswith("make "):
+        normalized_goal = normalized_goal[5:].strip()
+
+    goal_fragment = normalized_goal or image_goal or "the requested image goal"
+    opener = image_goal
+    if not starts_with_creation_verb:
+        opener = f"Create a {deliverable} for {goal_fragment}."
+    if opener and opener[-1] not in ".!?":
+        opener += "."
     if task in {"edit", "relight", "composite", "outpaint", "variation"}:
         opener = f"{task.capitalize()} the source image(s) to achieve this goal: {image_goal}."
     sentences.append(opener)
