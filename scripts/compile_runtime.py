@@ -149,7 +149,8 @@ def _compile_prompt(authoring: Dict[str, Any]) -> str:
     if opener and opener[-1] not in ".!?":
         opener += "."
     if task in {"edit", "relight", "composite", "outpaint", "variation"}:
-        opener = f"{task.capitalize()} the source image(s) to achieve this goal: {image_goal}."
+        goal_text = image_goal or "the requested image goal"
+        opener = f"{task.capitalize()} the source image(s) to achieve this goal: {goal_text}."
     sentences.append(opener)
 
     sentences.append(f"Subject: {subject_sentence}.")

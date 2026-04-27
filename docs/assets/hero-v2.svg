@@ -1,0 +1,44 @@
+<svg width="1600" height="720" viewBox="0 0 1600 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1226"/>
+      <stop offset="1" stop-color="#17173A"/>
+    </linearGradient>
+    <linearGradient id="a" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#7DE8FF"/><stop offset="1" stop-color="#B99DFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="720" rx="28" fill="url(#bg)"/>
+  <circle cx="260" cy="120" r="220" fill="#41C4FF" fill-opacity="0.15"/>
+  <circle cx="1390" cy="130" r="200" fill="#C394FF" fill-opacity="0.15"/>
+
+  <text x="96" y="120" fill="#EAF3FF" font-size="54" font-family="Inter, Arial" font-weight="700">Nano Banana Image Skill</text>
+  <text x="96" y="166" fill="#B8C8E8" font-size="24" font-family="Inter, Arial">Prompt system for generation, editing, and runtime JSON handoff</text>
+
+  <rect x="96" y="230" width="450" height="180" rx="20" fill="#101A35" stroke="#2B3D67"/>
+  <text x="124" y="272" fill="#7DE8FF" font-size="18" font-family="Inter, Arial" font-weight="600">Model Lanes</text>
+  <text x="124" y="308" fill="#EAF3FF" font-size="22" font-family="Inter, Arial">Nano Banana 2  → Fast iteration</text>
+  <text x="124" y="342" fill="#EAF3FF" font-size="22" font-family="Inter, Arial">Nano Banana Pro → Precision layout</text>
+  <text x="124" y="376" fill="#EAF3FF" font-size="22" font-family="Inter, Arial">Nano Banana     → Compatibility</text>
+
+  <rect x="576" y="230" width="420" height="180" rx="20" fill="#101A35" stroke="#2B3D67"/>
+  <text x="604" y="272" fill="#7DE8FF" font-size="18" font-family="Inter, Arial" font-weight="600">Workflow</text>
+  <text x="604" y="314" fill="#EAF3FF" font-size="21" font-family="Inter, Arial">Interview → Grounding → Style Router</text>
+  <text x="604" y="346" fill="#EAF3FF" font-size="21" font-family="Inter, Arial">Prompt Compiler → Risk Check</text>
+  <text x="604" y="378" fill="#EAF3FF" font-size="21" font-family="Inter, Arial">Runtime JSON + Examples</text>
+
+  <rect x="1024" y="230" width="480" height="340" rx="20" fill="#101A35" stroke="#2B3D67"/>
+  <text x="1052" y="272" fill="#7DE8FF" font-size="18" font-family="Inter, Arial" font-weight="600">Runtime Payload</text>
+  <rect x="1052" y="298" width="424" height="242" rx="14" fill="#0B1326" stroke="#243A61"/>
+  <text x="1076" y="336" fill="#DDEBFF" font-size="20" font-family="monospace">{</text>
+  <text x="1104" y="372" fill="#DDEBFF" font-size="18" font-family="monospace">"mode": "generate",</text>
+  <text x="1104" y="402" fill="#DDEBFF" font-size="18" font-family="monospace">"model": "gemini-3-pro-image-preview",</text>
+  <text x="1104" y="432" fill="#DDEBFF" font-size="18" font-family="monospace">"prompt": "...",</text>
+  <text x="1104" y="462" fill="#DDEBFF" font-size="18" font-family="monospace">"aspect_ratio": "4:5"</text>
+  <text x="1076" y="496" fill="#DDEBFF" font-size="20" font-family="monospace">}</text>
+
+  <rect x="96" y="448" width="900" height="122" rx="20" fill="#101A35" stroke="#2B3D67"/>
+  <text x="124" y="494" fill="#EAF3FF" font-size="24" font-family="Inter, Arial" font-weight="600">Designed for prompt quality, continuity safety, and clean production handoff.</text>
+  <rect x="124" y="516" width="320" height="26" rx="13" fill="url(#a)" fill-opacity="0.35"/>
+  <text x="138" y="535" fill="#EAF3FF" font-size="15" font-family="Inter, Arial">Image Gen V2 visual direction</text>
+</svg>

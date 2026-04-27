@@ -1,0 +1,31 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="24" fill="#0E162D"/>
+  <text x="64" y="84" fill="#EAF2FF" font-size="42" font-family="Inter, Arial" font-weight="700">Prompt Pipeline</text>
+  <text x="64" y="118" fill="#AFC2E5" font-size="20" font-family="Inter, Arial">Deterministic flow from request to runtime JSON</text>
+
+  <g font-family="Inter, Arial" font-size="22" fill="#EAF2FF">
+    <rect x="64" y="180" width="182" height="92" rx="14" fill="#152347" stroke="#2F4273"/><text x="93" y="234">Interview</text>
+    <rect x="286" y="180" width="182" height="92" rx="14" fill="#152347" stroke="#2F4273"/><text x="307" y="234">Grounding</text>
+    <rect x="508" y="180" width="182" height="92" rx="14" fill="#152347" stroke="#2F4273"/><text x="527" y="234">Style Router</text>
+    <rect x="730" y="180" width="182" height="92" rx="14" fill="#152347" stroke="#2F4273"/><text x="741" y="234">Prompt Compile</text>
+    <rect x="952" y="180" width="182" height="92" rx="14" fill="#152347" stroke="#2F4273"/><text x="981" y="234">Risk Check</text>
+  </g>
+
+  <g stroke="#7DE8FF" stroke-width="3" stroke-linecap="round">
+    <line x1="246" y1="226" x2="286" y2="226"/><line x1="468" y1="226" x2="508" y2="226"/>
+    <line x1="690" y1="226" x2="730" y2="226"/><line x1="912" y1="226" x2="952" y2="226"/>
+  </g>
+
+  <rect x="64" y="350" width="1070" height="304" rx="18" fill="#111D3A" stroke="#2F4273"/>
+  <text x="92" y="398" fill="#7DE8FF" font-size="24" font-family="Inter, Arial" font-weight="600">Output Bundle</text>
+  <text x="92" y="438" fill="#EAF2FF" font-size="22" font-family="Inter, Arial">• Production prompt (human-readable)</text>
+  <text x="92" y="474" fill="#EAF2FF" font-size="22" font-family="Inter, Arial">• Runtime JSON (machine-executable)</text>
+  <text x="92" y="510" fill="#EAF2FF" font-size="22" font-family="Inter, Arial">• Preserve / Avoid directives</text>
+  <text x="92" y="546" fill="#EAF2FF" font-size="22" font-family="Inter, Arial">• Model target + assumptions</text>
+
+  <rect x="726" y="420" width="382" height="200" rx="12" fill="#0C1530" stroke="#2F4273"/>
+  <text x="748" y="455" fill="#DCEBFF" font-size="18" font-family="monospace">{"model":"gemini-3-pro-image-preview"</text>
+  <text x="748" y="483" fill="#DCEBFF" font-size="18" font-family="monospace">,"mode":"generate"</text>
+  <text x="748" y="511" fill="#DCEBFF" font-size="18" font-family="monospace">,"prompt":"..."</text>
+  <text x="748" y="539" fill="#DCEBFF" font-size="18" font-family="monospace">,"aspect_ratio":"16:9"}</text>
+</svg>

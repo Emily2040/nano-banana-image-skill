@@ -1,0 +1,32 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="24" fill="#101730"/>
+  <text x="64" y="84" fill="#EAF2FF" font-size="42" font-family="Inter, Arial" font-weight="700">Model Lane Chooser</text>
+  <text x="64" y="118" fill="#AFC2E5" font-size="20" font-family="Inter, Arial">Select by output complexity and preservation sensitivity</text>
+
+  <rect x="64" y="176" width="340" height="468" rx="18" fill="#132243" stroke="#2F4273"/>
+  <text x="90" y="222" fill="#7DE8FF" font-size="24" font-family="Inter, Arial" font-weight="600">Nano Banana 2</text>
+  <text x="90" y="258" fill="#EAF2FF" font-size="20" font-family="Inter, Arial">• fast concepts</text>
+  <text x="90" y="292" fill="#EAF2FF" font-size="20" font-family="Inter, Arial">• variant sweeps</text>
+  <text x="90" y="326" fill="#EAF2FF" font-size="20" font-family="Inter, Arial">• light edits</text>
+  <rect x="90" y="552" width="188" height="36" rx="18" fill="#7DE8FF" fill-opacity="0.18"/>
+  <text x="108" y="576" fill="#CDEEFF" font-size="16" font-family="Inter, Arial">speed-first lane</text>
+
+  <rect x="430" y="176" width="340" height="468" rx="18" fill="#1A1F47" stroke="#4B4A85"/>
+  <text x="456" y="222" fill="#C8AEFF" font-size="24" font-family="Inter, Arial" font-weight="600">Nano Banana Pro</text>
+  <text x="456" y="258" fill="#EAF2FF" font-size="20" font-family="Inter, Arial">• typography-heavy</text>
+  <text x="456" y="292" fill="#EAF2FF" font-size="20" font-family="Inter, Arial">• infographic layout</text>
+  <text x="456" y="326" fill="#EAF2FF" font-size="20" font-family="Inter, Arial">• strict preserve edits</text>
+  <rect x="456" y="552" width="214" height="36" rx="18" fill="#C8AEFF" fill-opacity="0.18"/>
+  <text x="474" y="576" fill="#E9DDFF" font-size="16" font-family="Inter, Arial">precision-first lane</text>
+
+  <rect x="796" y="176" width="340" height="468" rx="18" fill="#2E223D" stroke="#64507B"/>
+  <text x="822" y="222" fill="#FFD889" font-size="24" font-family="Inter, Arial" font-weight="600">Nano Banana</text>
+  <text x="822" y="258" fill="#EAF2FF" font-size="20" font-family="Inter, Arial">• simple generation</text>
+  <text x="822" y="292" fill="#EAF2FF" font-size="20" font-family="Inter, Arial">• compatibility path</text>
+  <text x="822" y="326" fill="#EAF2FF" font-size="20" font-family="Inter, Arial">• low complexity tasks</text>
+  <rect x="822" y="552" width="218" height="36" rx="18" fill="#FFD889" fill-opacity="0.18"/>
+  <text x="840" y="576" fill="#FFE9BE" font-size="16" font-family="Inter, Arial">fallback compatibility</text>
+
+  <path d="M404 410H430" stroke="#7DE8FF" stroke-width="3" stroke-dasharray="7 7"/>
+  <path d="M770 410H796" stroke="#C8AEFF" stroke-width="3" stroke-dasharray="7 7"/>
+</svg>
