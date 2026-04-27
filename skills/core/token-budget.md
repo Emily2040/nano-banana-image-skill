@@ -62,6 +62,10 @@ That is a real use of words. Decorative adjectives are not.
 
 ## Budget profiles
 
+Model-aware ceiling notes:
+- Nano Banana model prompts currently cap at **about 480 tokens**; use this as a hard stop.
+- If a prompt gets near that cap, remove decorative language before removing physical constraints.
+
 ### Fast ideation
 Aim for 100–180 words.
 

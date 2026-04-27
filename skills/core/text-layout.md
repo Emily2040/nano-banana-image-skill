@@ -47,6 +47,8 @@ Use modular panels, labels near the data they describe, larger title at top, res
 - Do not place key text over high-frequency detail.
 - If readability matters, prefer Pro.
 - For labels or product packaging, specify exact placement and scale relationship.
+- Keep each text phrase short when possible (roughly <=25 characters per phrase).
+- Prefer 1–3 phrases total for clean compositions; more text should be treated as layout-heavy and iterated in passes.
 
 ## Failure modes
 

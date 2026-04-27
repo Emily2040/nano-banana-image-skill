@@ -1,8 +1,11 @@
 
-.PHONY: validate compile-examples
+.PHONY: validate validate-lite compile-examples
 
 validate:
 	python scripts/validate_repo.py
+
+validate-lite:
+	python scripts/validate_repo.py --lite
 
 compile-examples:
 	python scripts/compile_runtime.py examples/authoring/portrait-night-market-editorial.json -o examples/runtime/portrait-night-market-editorial.runtime.generated.json
