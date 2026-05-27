@@ -164,13 +164,22 @@ Recommended prompt order:
 
 ### Step 7 — validate risk
 
-Use `skills/core/risk-validation.md`.
+Use:
+- `skills/core/risk-validation.md`
+- `references/gemini-runtime-preflight.md` when preparing a Gemini runtime call.
 
 Check for:
 - contradictory requirements,
 - unsafe or disallowed content,
 - copyright or brand issues,
+- source-image rights,
+- likeness consent,
+- minors and age ambiguity,
 - unsupported historical claims,
+- deceptive or documentary claims,
+- SynthID/provenance expectations,
+- transparent-background limitations,
+- multi-turn edit/session continuity,
 - impossible continuity locks,
 - overloaded text requirements,
 - mismatched profile/platform combinations.
@@ -283,6 +292,7 @@ For safe, grounded edits:
 - `skills/core/preservation.md`
 - `skills/core/edit-delta.md`
 - `skills/core/risk-validation.md`
+- `references/gemini-runtime-preflight.md`
 
 For registries and schemas:
 - `registry/style-axes.md`

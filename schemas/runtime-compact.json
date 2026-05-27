@@ -10,9 +10,12 @@
     "mode",
     "model",
     "prompt",
+    "avoid",
     "aspect_ratio",
     "image_size",
-    "profile"
+    "profile",
+    "generation_config",
+    "metadata"
   ],
   "properties": {
     "schema_version": {
@@ -52,25 +55,103 @@
       "type": "string",
       "enum": [
         "1:1",
-        "4:5",
-        "3:4",
-        "16:9",
-        "9:16",
-        "21:9",
+        "1:4",
+        "1:8",
         "2:3",
-        "3:2"
+        "3:2",
+        "3:4",
+        "4:1",
+        "4:3",
+        "4:5",
+        "5:4",
+        "8:1",
+        "9:16",
+        "16:9",
+        "21:9"
       ]
     },
     "image_size": {
       "type": "string",
       "enum": [
-        "standard",
+        "512",
+        "1K",
         "2K",
         "4K"
       ]
     },
     "profile": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "portrait",
+        "product",
+        "architecture",
+        "character-sheet",
+        "infographic",
+        "poster-layout",
+        "game-key-art",
+        "vfx-shot"
+      ]
+    },
+    "generation_config": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "response_modalities",
+        "response_format"
+      ],
+      "properties": {
+        "response_modalities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "TEXT",
+              "IMAGE"
+            ]
+          },
+          "minItems": 1
+        },
+        "response_format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "image"
+          ],
+          "properties": {
+            "image": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "aspect_ratio",
+                "image_size"
+              ],
+              "properties": {
+                "aspect_ratio": {
+                  "$ref": "#/properties/aspect_ratio"
+                },
+                "image_size": {
+                  "$ref": "#/properties/image_size"
+                }
+              }
+            }
+          }
+        },
+        "thinking_config": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "include_thoughts": {
+              "type": "boolean"
+            },
+            "note": {
+              "type": "string"
+            }
+          }
+        }
+      }
     },
     "text_overlay": {
       "type": "object",
@@ -124,6 +205,13 @@
             "type": "string"
           }
         },
+        "prompt_word_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "provenance": {
+          "type": "string"
+        },
         "notes": {
           "type": "array",
           "items": {
@@ -143,7 +231,15 @@
       ],
       "properties": {
         "role": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "headline",
+            "subhead",
+            "body",
+            "cta",
+            "legal",
+            "label"
+          ]
         },
         "text": {
           "type": "string"
@@ -165,7 +261,33 @@
           "type": "string"
         },
         "role": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "primary",
+            "secondary",
+            "style",
+            "layout",
+            "identity",
+            "material"
+          ]
+        },
+        "mime_type": {
+          "type": "string",
+          "enum": [
+            "image/png",
+            "image/jpeg",
+            "image/webp"
+          ]
+        },
+        "rights_status": {
+          "type": "string",
+          "enum": [
+            "user-provided",
+            "licensed",
+            "public-domain",
+            "synthetic",
+            "unknown"
+          ]
         },
         "notes": {
           "type": "string"
@@ -178,15 +300,33 @@
       "schema_version": "1.0.0",
       "mode": "generate",
       "model": "gemini-3-pro-image-preview",
-      "prompt": "Create a poster layout for Create a digital festival poster with readable on-image text. Subject: lantern procession crossing a bridge — spring festival, patterned robes, evening procession, decorative lantern glow; moving in a graceful line across the bridge over dark water; varied but rhythmically staged figures; joyful but composed. Scene: riverside bridge scene, Edo-inspired historical festival setting, Japanese urban river district, clear spring evening, blue hour into night, water planes, distant rooflines, low decorative cloud shapes, controlled lantern reflections. World logic: the title field should remain uncluttered in the upper third, lantern reflections should rhythmically echo across the water, architecture and garments should remain period-coherent. Composition: poster illustration, vertical composition with a dominant upper title field and midframe procession band, elevated side view with graceful asymmetry, 35mm lens feel, flattened decorative depth appropriate to print language, decorative procession flow from lower-left toward upper-right, negative space: quiet upper-third field for title and subhead, aspect ratio 9:16. Lighting: key light: soft lantern glow distributed across the bridge, fill: cool evening sky wash, rim: subtle warm edge on robe silhouettes nearest lantern clusters, practicals: paper lanterns, clear evening air with restrained decorative mist shapes, material response: matte paper lanterns, patterned textiles, ink-flat water surfaces, lacquer accents, warm lanterns against cool twilight field. Style stack: manga, historical, ukiyo-e, japanese-edo, poster-layout, text-in-image, woodblock-inspired line rhythm and color separation, festive grace with calm elegance, palette: indigo, vermillion, warm lantern gold, soft cream, Edo print poster language traits: flattened depth, contour rhythm, pattern discipline, asymmetric crop elegance. On-image text: headline: Lanterns of Spring; subhead: A Night Procession of Light and Pattern; body: April 18 • River Arts Hall • Kyoto District; legal: Presented by the Museum of Seasonal Arts. Text layout: headline in upper third, body copy in lower third, legal line at footer, 8% on all sides with extra breathing room at top, en. Must include: readable title hierarchy, uncluttered upper title field, bridge procession rhythm, period-coherent garments. Avoid: modern neon signage, photo-real skin rendering, busy texture behind headline. Accessibility: strong headline contrast, clear separation between title and background.",
+      "prompt": "Create a digital festival poster with readable on-image text. Subject: lantern procession crossing a bridge — spring festival, patterned robes, evening procession, decorative lantern glow; moving in a graceful line across the bridge over dark water; varied but rhythmically staged figures; joyful but composed. Scene: riverside bridge scene, Edo-inspired historical festival setting, Japanese urban river district, clear spring evening, blue hour into night, water planes, distant rooflines, low decorative cloud shapes, controlled lantern reflections. World logic: the title field should remain uncluttered in the upper third, lantern reflections should rhythmically echo across the water, architecture and garments should remain period-coherent. Composition: poster illustration, vertical composition with a dominant upper title field and midframe procession band, elevated side view with graceful asymmetry, 35mm lens feel, flattened decorative depth appropriate to print language, decorative procession flow from lower-left toward upper-right, negative space: quiet upper-third field for title and subhead, aspect ratio 9:16. Lighting: key light: soft lantern glow distributed across the bridge, fill: cool evening sky wash, rim: subtle warm edge on robe silhouettes nearest lantern clusters, practicals: paper lanterns, clear evening air with restrained decorative mist shapes, material response: matte paper lanterns, patterned textiles, ink-flat water surfaces, lacquer accents, warm lanterns against cool twilight field. Style stack: manga, historical, ukiyo-e, japanese-edo, poster-layout, text-in-image, woodblock-inspired line rhythm and color separation, festive grace with calm elegance, palette: indigo, vermillion, warm lantern gold, soft cream, Edo print poster language traits: flattened depth, contour rhythm, pattern discipline, asymmetric crop elegance. On-image text: headline: Lanterns of Spring; subhead: A Night Procession of Light and Pattern; body: April 18 • River Arts Hall • Kyoto District; legal: Presented by the Museum of Seasonal Arts. Text layout: headline in upper third, body copy in lower third, legal line at footer, 8% on all sides with extra breathing room at top, en. Must include: readable title hierarchy, uncluttered upper title field, bridge procession rhythm, period-coherent garments. Avoid: modern neon signage, photo-real skin rendering, busy texture behind headline, trending on artstation, 8k. Accessibility: strong headline contrast, clear separation between title and background.",
       "avoid": [
         "modern neon signage",
         "photo-real skin rendering",
-        "busy texture behind headline"
+        "busy texture behind headline",
+        "trending on artstation",
+        "8k"
       ],
       "aspect_ratio": "9:16",
       "image_size": "2K",
       "profile": "poster-layout",
+      "generation_config": {
+        "response_modalities": [
+          "TEXT",
+          "IMAGE"
+        ],
+        "response_format": {
+          "image": {
+            "aspect_ratio": "9:16",
+            "image_size": "2K"
+          }
+        },
+        "thinking_config": {
+          "enabled": true,
+          "note": "Use chat/session history for multi-turn edits so thought signatures are preserved by the SDK."
+        }
+      },
       "metadata": {
         "family": "manga",
         "platform": "none",
@@ -198,6 +338,8 @@
           "poster-layout",
           "text-in-image"
         ],
+        "prompt_word_count": 342,
+        "provenance": "Gemini-generated or Gemini-edited output; SynthID watermark expected for generated images.",
         "notes": [
           "Poster layout with exact typography hierarchy and cultural styling benefits from the higher-fidelity model.",
           "event poster"
@@ -234,15 +376,33 @@
       "schema_version": "1.0.0",
       "mode": "edit",
       "model": "gemini-3-pro-image-preview",
-      "prompt": "Edit the source image(s) to achieve this goal: Upgrade a clean packshot into a premium campaign still without changing the product identity. Subject: frosted glass skincare bottle — cylindrical, silver cap, centered label, minimal design; standing still on a tabletop surface; front-facing with slight three-quarter cap turn; n/a. Scene: studio tabletop product setup, contemporary, n/a, none, studio controlled, currently matte gray, to be replaced. World logic: the bottle silhouette and front-facing label must remain exact, the new background may influence color bounce but not geometry, the tabletop reflection and shadow anchor should remain believable. Composition: product hero still, centered bottle with comfortable breathing room, eye-level to product shoulder, 90mm lens feel, sharp focus on label plane with soft falloff behind, static studio setup, negative space: clean upper area for possible campaign wordmark, aspect ratio 1:1. Lighting: key light: large soft top-front source maintaining premium packshot clarity, fill: restrained frontal return, rim: narrow teal edge from back right, clear studio air, material response: frosted glass diffusion, satin paper label, brushed silver cap, neutral key with jewel-toned rim accent. Style stack: photoreal, product, instagram-post, clean premium photography, quiet luxury, palette: emerald, silver, soft neutral white, luxury skincare advertising traits: restrained reflections, calm spacing, premium material emphasis. Preserve exactly: exact bottle silhouette, cap alignment, label geometry and text, camera angle and crop, tabletop reflection, shadow footprint. Change only: replace matte gray background with wet emerald marble, add narrow teal rim light from back right, keep the overall lighting premium and controlled. Mask hint: background replacement should avoid touching bottle edges or label plane. Delta priority: preservation first, environment second, lighting accent third. Must include: label fully readable, premium jewel-toned backdrop, controlled reflections. Avoid: bottle geometry drift, extra props, warped label text. Accessibility: clear object-background separation.",
+      "prompt": "Edit the source image(s) to achieve this goal: Upgrade a clean packshot into a premium campaign still without changing the product identity. Subject: frosted glass skincare bottle — cylindrical, silver cap, centered label, minimal design; standing still on a tabletop surface; front-facing with slight three-quarter cap turn. Scene: studio tabletop product setup, contemporary, studio controlled, currently matte gray, to be replaced. World logic: the bottle silhouette and front-facing label must remain exact, the new background may influence color bounce but not geometry, the tabletop reflection and shadow anchor should remain believable. Composition: product hero still, centered bottle with comfortable breathing room, eye-level to product shoulder, 90mm lens feel, sharp focus on label plane with soft falloff behind, static studio setup, negative space: clean upper area for possible campaign wordmark, aspect ratio 1:1. Lighting: key light: large soft top-front source maintaining premium packshot clarity, fill: restrained frontal return, rim: narrow teal edge from back right, clear studio air, material response: frosted glass diffusion, satin paper label, brushed silver cap, neutral key with jewel-toned rim accent. Style stack: photoreal, product, instagram-post, clean premium photography, quiet luxury, palette: emerald, silver, soft neutral white, luxury skincare advertising traits: restrained reflections, calm spacing, premium material emphasis. Preserve exactly: exact bottle silhouette, cap alignment, label geometry and text, camera angle and crop, tabletop reflection, shadow footprint. Change only: replace matte gray background with wet emerald marble, add narrow teal rim light from back right, keep the overall lighting premium and controlled. Mask hint: background replacement should avoid touching bottle edges or label plane. Delta priority: preservation first, environment second, lighting accent third. Must include: label fully readable, premium jewel-toned backdrop, controlled reflections. Avoid: bottle geometry drift, extra props, warped label text, masterpiece, award-winning. Accessibility: clear object-background separation.",
       "avoid": [
         "bottle geometry drift",
         "extra props",
-        "warped label text"
+        "warped label text",
+        "masterpiece",
+        "award-winning"
       ],
       "aspect_ratio": "1:1",
       "image_size": "2K",
       "profile": "product",
+      "generation_config": {
+        "response_modalities": [
+          "TEXT",
+          "IMAGE"
+        ],
+        "response_format": {
+          "image": {
+            "aspect_ratio": "1:1",
+            "image_size": "2K"
+          }
+        },
+        "thinking_config": {
+          "enabled": true,
+          "note": "Use chat/session history for multi-turn edits so thought signatures are preserved by the SDK."
+        }
+      },
       "metadata": {
         "family": "photoreal",
         "platform": "instagram-post",
@@ -251,6 +411,8 @@
           "product",
           "instagram-post"
         ],
+        "prompt_word_count": 291,
+        "provenance": "Gemini-generated or Gemini-edited output; SynthID watermark expected for generated images.",
         "notes": [
           "Strict product preservation and label fidelity need a careful edit path.",
           "campaign still"

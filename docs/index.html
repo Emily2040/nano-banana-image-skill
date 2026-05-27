@@ -41,7 +41,7 @@
   <div class="nav-inner">
     <a class="brand" href="#top"><img src="./assets/favicon.svg" alt=""><span>Nano Banana Image Skill</span></a>
     <div class="links">
-      <a href="#models">Models</a><a href="#workflow">Workflow</a><a href="#v2-assets">Image Gen V2 Assets</a><a href="#examples">Examples</a><a href="#install">Install</a>
+      <a href="#models">Models</a><a href="#runtime">Runtime</a><a href="#workflow">Workflow</a><a href="#v2-assets">Image Gen V2 Assets</a><a href="#examples">Examples</a><a href="#install">Install</a>
     </div>
   </div>
 </nav>
@@ -80,6 +80,15 @@
     </div>
   </section>
 
+  <section id="runtime">
+    <div class="section-head"><h2>Gemini runtime note</h2><p class="muted">Current public Gemini image docs use <code>generateContent</code> with text parts, inline image data, image config, and model-specific output controls.</p></div>
+    <div class="grid two">
+      <article class="card"><span class="pill">Documented image models</span><h3>API names</h3><p><code>gemini-3-pro-image-preview</code><br><code>gemini-3.1-flash-image-preview</code><br><code>gemini-2.5-flash-image</code></p></article>
+      <article class="card"><span class="pill">Runtime setup</span><h3>Before validation</h3><pre>python -m pip install -r requirements-dev.txt
+python scripts/validate_repo.py</pre></article>
+    </div>
+  </section>
+
   <section id="workflow">
     <div class="section-head"><h2>Workflow infographics</h2><p class="muted">Front-end now includes clean process visuals aligned with the skill modules.</p></div>
     <div class="grid two">
@@ -115,7 +124,8 @@ Panel B: Fast vs Precision model lane chooser with decision chips.</pre></articl
       <article class="card"><h3>Install</h3><pre>mkdir -p ~/.agents/skills
 ln -s /path/to/nano-banana-image-skill \
   ~/.agents/skills/nano-banana-image-skill</pre></article>
-      <article class="card"><h3>Validate</h3><pre>python scripts/validate_repo.py
+      <article class="card"><h3>Validate</h3><pre>python -m pip install -r requirements-dev.txt
+python scripts/validate_repo.py
 python scripts/validate_repo.py --lite
 make validate-lite</pre></article>
     </div>

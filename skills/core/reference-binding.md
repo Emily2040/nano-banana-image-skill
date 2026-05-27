@@ -5,6 +5,18 @@
 
 Bind uploaded or cited references to explicit roles so the model knows what each reference controls.
 
+## Source intake preflight
+
+Before assigning roles, record what is safe to use:
+
+- origin: user upload, licensed asset, commissioned work, generated output, or web reference;
+- rights boundary: owned/cleared, inspiration only, unknown, or needs confirmation;
+- likeness consent: required for identifiable people, especially face-preserving edits;
+- brand/IP status: real logo/product/character, fictional mark, user-provided mark, or generic trait reference;
+- minor status: no minors, adult subjects, age-ambiguous, or guardian authority confirmed.
+
+If rights, consent, or minor status is unclear, do not bind that reference as `identity` or literal `primary` material until resolved.
+
 ## Common roles
 
 - `primary` — main composition or subject anchor
@@ -19,6 +31,10 @@ Bind uploaded or cited references to explicit roles so the model knows what each
 - Preserve the strongest role-specific details.
 - Avoid inventing hidden details from a reference.
 - If references conflict, prioritize the user-named primary reference.
+- Do not let a style reference override likeness, consent, brand, or age constraints.
+- Treat web references as `style`, `layout`, or `material` only unless reuse rights are explicit.
+- Keep source IDs stable across multi-turn edits; when a generated result becomes the next source, mark it as a generated turn in the notes.
+- For transparent-background work, bind the source subject separately from the background target and note that alpha must be verified downstream.
 
 ## Example 1 — face + wardrobe + stage
 
@@ -59,3 +75,7 @@ For each reference, ask:
 - What should it **not** control?
 - Which visible details are essential?
 - Which hidden details must remain unspecified?
+- Is this source cleared for the requested use?
+- Is likeness consent or guardian authority needed?
+- Could this imply a real brand endorsement, copyrighted character use, or documentary claim?
+- Does this turn depend on prior session context or generated outputs?

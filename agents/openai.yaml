@@ -1,0 +1,7 @@
+interface:
+  display_name: "Nano Banana Image Skill"
+  short_description: "Gemini image prompts with structured JSON"
+  default_prompt: "Use $nano-banana-image-skill to turn this image request into a model-aware production prompt and runtime JSON."
+
+policy:
+  allow_implicit_invocation: true

@@ -214,13 +214,19 @@
           "type": "string",
           "enum": [
             "1:1",
-            "4:5",
-            "3:4",
-            "16:9",
-            "9:16",
-            "21:9",
+            "1:4",
+            "1:8",
             "2:3",
-            "3:2"
+            "3:2",
+            "3:4",
+            "4:1",
+            "4:3",
+            "4:5",
+            "5:4",
+            "8:1",
+            "9:16",
+            "16:9",
+            "21:9"
           ]
         },
         "motion": {
@@ -483,6 +489,15 @@
         "minors": {
           "type": "string"
         },
+        "source_rights": {
+          "type": "string"
+        },
+        "consent": {
+          "type": "string"
+        },
+        "provenance": {
+          "type": "string"
+        },
         "policy_notes": {
           "type": "array",
           "items": {
@@ -535,7 +550,8 @@
         "size_tier": {
           "type": "string",
           "enum": [
-            "standard",
+            "512",
+            "1K",
             "2K",
             "4K"
           ]
@@ -544,7 +560,8 @@
           "type": "string"
         },
         "transparent_background": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Gemini image models do not return true transparent backgrounds; true means post-processing is required."
         }
       }
     },
@@ -645,6 +662,24 @@
             "layout",
             "identity",
             "material"
+          ]
+        },
+        "mime_type": {
+          "type": "string",
+          "enum": [
+            "image/png",
+            "image/jpeg",
+            "image/webp"
+          ]
+        },
+        "rights_status": {
+          "type": "string",
+          "enum": [
+            "user-provided",
+            "licensed",
+            "public-domain",
+            "synthetic",
+            "unknown"
           ]
         },
         "notes": {

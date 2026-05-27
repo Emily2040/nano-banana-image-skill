@@ -32,6 +32,7 @@ Use these on demand:
   - example files if behavior changes materially
 - When changing schemas, validate the examples immediately after.
 - Do not remove the `docs/` site; it is part of the package front-end.
+- Before full validation, install dev dependencies with `python -m pip install -r requirements-dev.txt`.
 
 ## Expected outputs
 
