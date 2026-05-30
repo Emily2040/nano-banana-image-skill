@@ -1,0 +1,3 @@
+display_name: Model-Aware Image Prompt Engineer
+short_description: Routes image prompts by model, surface, format, safety context, and local workflow controls.
+default_prompt: Write a model-specific image prompt pack for the target image model and platform.

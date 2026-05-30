@@ -28,6 +28,19 @@ The skill is optimized for both **speed workflows** using Nano Banana 2 / V2 for
 
 ---
 
+## Companion package
+
+This repository now includes a broader companion skill at [`packages/model-aware-image-prompt-engineer`](packages/model-aware-image-prompt-engineer/README.md).
+
+Use it when the target is not only Nano Banana. It routes image prompts across Gemini, OpenAI image models, Midjourney, FLUX, Qwen-Image, Z-Image, Stable Diffusion, Pony, Illustrious, NoobAI, Animagine, HunyuanImage, HiDream, OmniGen2, Sana, PixArt, Kolors, Chroma, Runway, Ideogram, Firefly, Recraft, Luma, local ComfyUI workflows, and hosted wrappers.
+
+It also includes a public README hero and infographic:
+
+- [`assets/hero.png`](packages/model-aware-image-prompt-engineer/assets/hero.png)
+- [`assets/infographic.png`](packages/model-aware-image-prompt-engineer/assets/infographic.png)
+
+---
+
 ## Model targets
 
 | Friendly name | Canonical model target | Best for |
