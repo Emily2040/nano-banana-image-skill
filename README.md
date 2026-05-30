@@ -5,7 +5,7 @@
 [![Agent Skills](https://img.shields.io/badge/format-Agent%20Skills-blueviolet)](#compatibility-strategy)
 [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-orange)](#github-pages-front-end)
 
-![Nano Banana Image Skill hero](docs/assets/hero.svg)
+![Nano Banana Image Skill hero](docs/assets/hero-imagegen.png)
 
 A production-grade, agent-portable image prompting skill for **Nano Banana Pro** and **Nano Banana 2 / V2** in the Gemini image family. It turns fuzzy creative requests into clean interview questions, grounded art direction, model-aware prompt stacks, edit-preservation deltas, and structured JSON payloads.
 
@@ -48,7 +48,7 @@ The skill keeps model choice explicit in both the human-readable brief and the r
 |---|---|
 | **Portable** | Canonical `SKILL.md` for skill-aware agents, plus `AGENTS.md`, `CLAUDE.md`, and `GEMINI.md` for ecosystem-specific loaders. |
 | **Modular** | Core prompting logic split into focused files under `skills/core/`. Style and output families live in their own registries. Schemas and examples separated cleanly. |
-| **Beautiful** | Includes a GitHub Pages front-end in `docs/` with custom SVG artwork and a polished landing page. |
+| **Beautiful** | Includes a GitHub Pages front-end in `docs/` with ImageGen raster artwork, SVG diagrams, and a polished landing page. |
 | **Deployable** | Ships with a validation script, example compiler, and GitHub Actions CI workflow. |
 
 ---
@@ -95,7 +95,7 @@ nano-banana-image-skill/
 │  └─ compile_gemini_request.py # Runtime-to-Gemini request skeleton
 ├─ docs/
 │  ├─ index.html             # GitHub Pages landing page
-│  └─ assets/                # SVG artwork (hero, constellation, flow, etc.)
+│  └─ assets/                # Raster and SVG artwork (hero, infographic, flow, etc.)
 └─ .github/workflows/
    └─ validate.yml           # CI validation workflow
 ```

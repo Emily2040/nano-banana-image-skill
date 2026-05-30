@@ -168,6 +168,7 @@
         "example validation",
         "runtime parity validation",
         "Gemini request adapter validation",
+        "documentation asset validation",
         "static docs",
         "cross-agent entrypoints"
       ]

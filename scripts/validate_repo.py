@@ -232,6 +232,29 @@ def validate_gemini_request_compilation(runtime_paths: List[Path]) -> None:
             raise ValueError(f"{runtime_path.relative_to(ROOT)} Gemini request image size mismatch.")
 
 
+def validate_documentation_assets() -> None:
+    html_path = ROOT / "docs" / "index.html"
+    html = html_path.read_text(encoding="utf-8")
+    refs = set()
+    for match in re.finditer(r'\b(?:src|href|content)=["\'](\.?/?assets/[^"\']+)["\']', html):
+        refs.add(Path("docs") / match.group(1).lstrip("./"))
+
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    for match in re.finditer(r'!\[[^\]]*\]\((docs/assets/[^)\s]+)(?:\s+"[^"]*")?\)', readme):
+        refs.add(Path(match.group(1)))
+
+    missing = [str(path) for path in sorted(refs) if not (ROOT / path).exists()]
+    if missing:
+        raise FileNotFoundError("Missing referenced documentation assets:\n- " + "\n- ".join(missing))
+
+    for path in sorted(refs):
+        absolute = ROOT / path
+        if absolute.suffix.lower() == ".png":
+            with absolute.open("rb") as handle:
+                if handle.read(8) != b"\x89PNG\r\n\x1a\n":
+                    raise ValueError(f"{path} is not a valid PNG file.")
+
+
 def _validate_lite() -> None:
     """Run a dependency-free validation pass."""
     required_paths = [
@@ -241,6 +264,8 @@ def _validate_lite() -> None:
         ROOT / "CLAUDE.md",
         ROOT / "GEMINI.md",
         ROOT / "docs" / "index.html",
+        ROOT / "docs" / "assets" / "hero-imagegen.png",
+        ROOT / "docs" / "assets" / "infographic-imagegen.png",
         ROOT / "schemas" / "authoring-base.json",
         ROOT / "schemas" / "runtime-compact.json",
         ROOT / "schemas" / "pack-format.json",
@@ -253,6 +278,8 @@ def _validate_lite() -> None:
     missing = [str(path.relative_to(ROOT)) for path in required_paths if not path.exists()]
     if missing:
         raise FileNotFoundError("Missing required files:\n- " + "\n- ".join(missing))
+
+    validate_documentation_assets()
 
     compiler = load_compiler()
     authoring_examples = sorted((ROOT / "examples" / "authoring").glob("*.json"))
@@ -306,6 +333,8 @@ def main() -> None:
         ROOT / "GEMINI.md",
         ROOT / "docs" / "index.html",
         ROOT / "docs" / ".nojekyll",
+        ROOT / "docs" / "assets" / "hero-imagegen.png",
+        ROOT / "docs" / "assets" / "infographic-imagegen.png",
         ROOT / "schemas" / "authoring-base.json",
         ROOT / "schemas" / "runtime-compact.json",
         ROOT / "schemas" / "pack-format.json",
@@ -318,6 +347,8 @@ def main() -> None:
     missing = [str(path.relative_to(ROOT)) for path in required_paths if not path.exists()]
     if missing:
         raise FileNotFoundError("Missing required files:\n- " + "\n- ".join(missing))
+
+    validate_documentation_assets()
 
     if yaml is None or Draft202012Validator is None:
         missing_deps = []
