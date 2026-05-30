@@ -12,16 +12,39 @@ import json
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+ROOT = Path(__file__).resolve().parents[1]
+PLACEHOLDERS = {"", "n/a", "na", "none", "null", "not applicable", "not-applicable"}
+
+
+def _clean_text(value: Optional[str]) -> str:
+    if not isinstance(value, str):
+        return ""
+    stripped = value.strip()
+    if stripped.lower().strip(". ") in PLACEHOLDERS:
+        return ""
+    return stripped
+
 
 def _nonempty(items: List[Optional[str]]) -> List[str]:
-    return [item.strip() for item in items if isinstance(item, str) and item.strip()]
+    return [cleaned for item in items if (cleaned := _clean_text(item))]
 
 
 def _join_phrases(items: List[str], sep: str = ", ") -> str:
-    items = [x for x in items if x]
+    items = _nonempty(items)
     if not items:
         return ""
     return sep.join(items)
+
+
+def _dedupe(items: List[str]) -> List[str]:
+    seen = set()
+    output = []
+    for item in _nonempty(items):
+        key = item.casefold()
+        if key not in seen:
+            seen.add(key)
+            output.append(item)
+    return output
 
 
 def _style_stack(authoring: Dict[str, Any]) -> List[str]:
@@ -31,20 +54,20 @@ def _style_stack(authoring: Dict[str, Any]) -> List[str]:
 
     for key in ("family", "genre", "movement", "culture", "capture", "pipeline"):
         value = style.get(key)
-        if isinstance(value, str) and value:
-            stack.append(value)
+        if cleaned := _clean_text(value):
+            stack.append(cleaned)
 
     for feature in style.get("render_features", []) or []:
-        if isinstance(feature, str) and feature:
-            stack.append(feature)
+        if cleaned := _clean_text(feature):
+            stack.append(cleaned)
 
     profile = output.get("profile")
-    if isinstance(profile, str) and profile:
-        stack.append(profile)
+    if cleaned := _clean_text(profile):
+        stack.append(cleaned)
 
     platform = output.get("platform")
-    if isinstance(platform, str) and platform and platform != "none":
-        stack.append(platform)
+    if cleaned := _clean_text(platform):
+        stack.append(cleaned)
 
     text_overlay = authoring.get("text_overlay", {})
     if text_overlay.get("enabled"):
@@ -54,7 +77,39 @@ def _style_stack(authoring: Dict[str, Any]) -> List[str]:
     if task == "relight":
         stack.append("relight")
 
-    return stack
+    return _dedupe(stack)
+
+
+def _avoid_items(authoring: Dict[str, Any]) -> List[str]:
+    constraints = authoring.get("constraints", {})
+    compiler = authoring.get("compiler", {})
+    avoid = []
+    avoid.extend(constraints.get("must_avoid", []) or [])
+    avoid.extend(constraints.get("banned_terms", []) or [])
+    if avoid_prompt := _clean_text(compiler.get("avoid_prompt")):
+        avoid.append(avoid_prompt)
+    return _dedupe(avoid)
+
+
+def _generation_config(authoring: Dict[str, Any]) -> Dict[str, Any]:
+    model = authoring["model_target"]["api_model"]
+    output = authoring["output"]
+    composition = authoring["composition"]
+    config: Dict[str, Any] = {
+        "response_modalities": ["TEXT", "IMAGE"],
+        "response_format": {
+            "image": {
+                "aspect_ratio": composition["aspect_ratio"],
+                "image_size": output["size_tier"],
+            }
+        },
+    }
+    if model in {"gemini-3-pro-image-preview", "gemini-3.1-flash-image-preview"}:
+        config["thinking_config"] = {
+            "enabled": True,
+            "note": "Use chat/session history for multi-turn edits so thought signatures are preserved by the SDK.",
+        }
+    return config
 
 
 def _compile_prompt(authoring: Dict[str, Any]) -> str:
@@ -71,7 +126,7 @@ def _compile_prompt(authoring: Dict[str, Any]) -> str:
     text_overlay = authoring.get("text_overlay", {})
 
     deliverable = output["profile"].replace("-", " ")
-    image_goal = (intent["goal"] or "").strip()
+    image_goal = _clean_text(intent["goal"])
 
     subject_bits = _nonempty([
         subject.get("primary"),
@@ -132,6 +187,10 @@ def _compile_prompt(authoring: Dict[str, Any]) -> str:
                 style_bits.append(f"{source} traits: {traits}")
 
     sentences: List[str] = []
+    explicit_prompt = _clean_text(authoring.get("compiler", {}).get("compiled_prompt"))
+    if explicit_prompt:
+        return explicit_prompt
+
     normalized_goal = image_goal.rstrip(".")
     lower_goal = normalized_goal.lower()
     starts_with_creation_verb = lower_goal.startswith(("create ", "generate ", "make "))
@@ -204,7 +263,7 @@ def _compile_prompt(authoring: Dict[str, Any]) -> str:
             sentences.append(f"Text layout: {_join_phrases(placement_bits)}.")
 
     include = _join_phrases(constraints.get("must_include", []) or [])
-    avoid = _join_phrases(constraints.get("must_avoid", []) or [])
+    avoid = _join_phrases(_avoid_items(authoring))
     accessibility = _join_phrases(constraints.get("accessibility", []) or [])
     if include:
         sentences.append(f"Must include: {include}.")
@@ -217,19 +276,23 @@ def _compile_prompt(authoring: Dict[str, Any]) -> str:
 
 
 def compile_runtime(authoring: Dict[str, Any]) -> Dict[str, Any]:
+    prompt = _compile_prompt(authoring)
     runtime: Dict[str, Any] = {
         "schema_version": "1.0.0",
         "mode": authoring["task"],
         "model": authoring["model_target"]["api_model"],
-        "prompt": _compile_prompt(authoring),
-        "avoid": authoring.get("constraints", {}).get("must_avoid", []),
+        "prompt": prompt,
+        "avoid": _avoid_items(authoring),
         "aspect_ratio": authoring["composition"]["aspect_ratio"],
         "image_size": authoring["output"]["size_tier"],
         "profile": authoring["output"]["profile"],
+        "generation_config": _generation_config(authoring),
         "metadata": {
             "family": authoring["style"]["family"],
             "platform": authoring["output"].get("platform", "none"),
             "style_stack": _style_stack(authoring),
+            "prompt_word_count": len(prompt.split()),
+            "provenance": "Gemini-generated or Gemini-edited output; SynthID watermark expected for generated images.",
             "notes": [
                 authoring["model_target"]["reason"],
                 authoring["intent"]["use_case"],

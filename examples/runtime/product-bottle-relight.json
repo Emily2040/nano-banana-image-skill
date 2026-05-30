@@ -2,15 +2,33 @@
   "schema_version": "1.0.0",
   "mode": "edit",
   "model": "gemini-3-pro-image-preview",
-  "prompt": "Edit the source image(s) to achieve this goal: Upgrade a clean packshot into a premium campaign still without changing the product identity. Subject: frosted glass skincare bottle — cylindrical, silver cap, centered label, minimal design; standing still on a tabletop surface; front-facing with slight three-quarter cap turn; n/a. Scene: studio tabletop product setup, contemporary, n/a, none, studio controlled, currently matte gray, to be replaced. World logic: the bottle silhouette and front-facing label must remain exact, the new background may influence color bounce but not geometry, the tabletop reflection and shadow anchor should remain believable. Composition: product hero still, centered bottle with comfortable breathing room, eye-level to product shoulder, 90mm lens feel, sharp focus on label plane with soft falloff behind, static studio setup, negative space: clean upper area for possible campaign wordmark, aspect ratio 1:1. Lighting: key light: large soft top-front source maintaining premium packshot clarity, fill: restrained frontal return, rim: narrow teal edge from back right, clear studio air, material response: frosted glass diffusion, satin paper label, brushed silver cap, neutral key with jewel-toned rim accent. Style stack: photoreal, product, instagram-post, clean premium photography, quiet luxury, palette: emerald, silver, soft neutral white, luxury skincare advertising traits: restrained reflections, calm spacing, premium material emphasis. Preserve exactly: exact bottle silhouette, cap alignment, label geometry and text, camera angle and crop, tabletop reflection, shadow footprint. Change only: replace matte gray background with wet emerald marble, add narrow teal rim light from back right, keep the overall lighting premium and controlled. Mask hint: background replacement should avoid touching bottle edges or label plane. Delta priority: preservation first, environment second, lighting accent third. Must include: label fully readable, premium jewel-toned backdrop, controlled reflections. Avoid: bottle geometry drift, extra props, warped label text. Accessibility: clear object-background separation.",
+  "prompt": "Edit the source image(s) to achieve this goal: Upgrade a clean packshot into a premium campaign still without changing the product identity. Subject: frosted glass skincare bottle — cylindrical, silver cap, centered label, minimal design; standing still on a tabletop surface; front-facing with slight three-quarter cap turn. Scene: studio tabletop product setup, contemporary, studio controlled, currently matte gray, to be replaced. World logic: the bottle silhouette and front-facing label must remain exact, the new background may influence color bounce but not geometry, the tabletop reflection and shadow anchor should remain believable. Composition: product hero still, centered bottle with comfortable breathing room, eye-level to product shoulder, 90mm lens feel, sharp focus on label plane with soft falloff behind, static studio setup, negative space: clean upper area for possible campaign wordmark, aspect ratio 1:1. Lighting: key light: large soft top-front source maintaining premium packshot clarity, fill: restrained frontal return, rim: narrow teal edge from back right, clear studio air, material response: frosted glass diffusion, satin paper label, brushed silver cap, neutral key with jewel-toned rim accent. Style stack: photoreal, product, instagram-post, clean premium photography, quiet luxury, palette: emerald, silver, soft neutral white, luxury skincare advertising traits: restrained reflections, calm spacing, premium material emphasis. Preserve exactly: exact bottle silhouette, cap alignment, label geometry and text, camera angle and crop, tabletop reflection, shadow footprint. Change only: replace matte gray background with wet emerald marble, add narrow teal rim light from back right, keep the overall lighting premium and controlled. Mask hint: background replacement should avoid touching bottle edges or label plane. Delta priority: preservation first, environment second, lighting accent third. Must include: label fully readable, premium jewel-toned backdrop, controlled reflections. Avoid: bottle geometry drift, extra props, warped label text, masterpiece, award-winning. Accessibility: clear object-background separation.",
   "avoid": [
     "bottle geometry drift",
     "extra props",
-    "warped label text"
+    "warped label text",
+    "masterpiece",
+    "award-winning"
   ],
   "aspect_ratio": "1:1",
   "image_size": "2K",
   "profile": "product",
+  "generation_config": {
+    "response_modalities": [
+      "TEXT",
+      "IMAGE"
+    ],
+    "response_format": {
+      "image": {
+        "aspect_ratio": "1:1",
+        "image_size": "2K"
+      }
+    },
+    "thinking_config": {
+      "enabled": true,
+      "note": "Use chat/session history for multi-turn edits so thought signatures are preserved by the SDK."
+    }
+  },
   "metadata": {
     "family": "photoreal",
     "platform": "instagram-post",
@@ -19,6 +37,8 @@
       "product",
       "instagram-post"
     ],
+    "prompt_word_count": 291,
+    "provenance": "Gemini-generated or Gemini-edited output; SynthID watermark expected for generated images.",
     "notes": [
       "Strict product preservation and label fidelity need a careful edit path.",
       "campaign still"

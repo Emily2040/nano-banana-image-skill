@@ -2,15 +2,33 @@
   "schema_version": "1.0.0",
   "mode": "generate",
   "model": "gemini-3.1-flash-image-preview",
-  "prompt": "Create a portrait for Create a moody editorial portrait for a music artist social campaign. Subject: synth-pop singer — late-20s, confident, rain-damp, sleek black nylon jacket; pausing beneath market awnings after stepping out of the rain; black nylon bomber with silver zipper and small in-ear monitor; waist-up, one hand lightly touching the awning edge; focused with a slight half-smile. Scene: narrow covered night-market alley, contemporary near-future, dense East Asian commercial district, light rain just ending, midnight, stacked vendor signs, reflective tarps, damp concrete, distant umbrellas. World logic: wet surfaces should catch mixed warm and cool practical light, crowd presence should be implied in the distance but not cross the foreground, the alley should remain spatially plausible and human-scaled. Composition: editorial portrait, waist-up with the face occupying the upper-center focal zone, slightly low and intimate, 50mm lens feel, shallow but readable depth with soft background separation, stable observational framing, negative space: soft upper-left pocket for possible future cover lines, aspect ratio 4:5. Lighting: key light: warm tungsten stall light from camera right, fill: cool cyan ambient bounce from the alley, rim: thin magenta edge on the jacket shoulder and hairline, practicals: vendor lanterns, small LED sign spill, reflected puddle light, fine rain mist catching highlights without becoming heavy fog, material response: wet nylon highlights, natural damp skin sheen, soft reflections on metal zipper teeth, warm key versus cool ambient contrast. Style stack: photoreal, sci-fi, iphone-night-mode, volumetric-lighting, portrait, instagram-post, clean but not over-sharpened smartphone-night realism, intimate nocturnal electricity, palette: cyan, amber, magenta accents, charcoal black, editorial music photography traits: confident face-first framing, rain sheen, available light authenticity. Must include: face clearly readable, visible rain-wet materials, market practicals and signs. Avoid: foreground crowd occlusion, heavy cyberpunk armor, unreadable sign clutter. Accessibility: strong face contrast, clear focal separation.",
+  "prompt": "Create a moody editorial portrait for a music artist social campaign. Subject: synth-pop singer — late-20s, confident, rain-damp, sleek black nylon jacket; pausing beneath market awnings after stepping out of the rain; black nylon bomber with silver zipper and small in-ear monitor; waist-up, one hand lightly touching the awning edge; focused with a slight half-smile. Scene: narrow covered night-market alley, contemporary near-future, dense East Asian commercial district, light rain just ending, midnight, stacked vendor signs, reflective tarps, damp concrete, distant umbrellas. World logic: wet surfaces should catch mixed warm and cool practical light, crowd presence should be implied in the distance but not cross the foreground, the alley should remain spatially plausible and human-scaled. Composition: editorial portrait, waist-up with the face occupying the upper-center focal zone, slightly low and intimate, 50mm lens feel, shallow but readable depth with soft background separation, stable observational framing, negative space: soft upper-left pocket for possible future cover lines, aspect ratio 4:5. Lighting: key light: warm tungsten stall light from camera right, fill: cool cyan ambient bounce from the alley, rim: thin magenta edge on the jacket shoulder and hairline, practicals: vendor lanterns, small LED sign spill, reflected puddle light, fine rain mist catching highlights without becoming heavy fog, material response: wet nylon highlights, natural damp skin sheen, soft reflections on metal zipper teeth, warm key versus cool ambient contrast. Style stack: photoreal, sci-fi, iphone-night-mode, volumetric-lighting, portrait, instagram-post, clean but not over-sharpened smartphone-night realism, intimate nocturnal electricity, palette: cyan, amber, magenta accents, charcoal black, editorial music photography traits: confident face-first framing, rain sheen, available light authenticity. Must include: face clearly readable, visible rain-wet materials, market practicals and signs. Avoid: foreground crowd occlusion, heavy cyberpunk armor, unreadable sign clutter, masterpiece, best quality. Accessibility: strong face contrast, clear focal separation.",
   "avoid": [
     "foreground crowd occlusion",
     "heavy cyberpunk armor",
-    "unreadable sign clutter"
+    "unreadable sign clutter",
+    "masterpiece",
+    "best quality"
   ],
   "aspect_ratio": "4:5",
   "image_size": "2K",
   "profile": "portrait",
+  "generation_config": {
+    "response_modalities": [
+      "TEXT",
+      "IMAGE"
+    ],
+    "response_format": {
+      "image": {
+        "aspect_ratio": "4:5",
+        "image_size": "2K"
+      }
+    },
+    "thinking_config": {
+      "enabled": true,
+      "note": "Use chat/session history for multi-turn edits so thought signatures are preserved by the SDK."
+    }
+  },
   "metadata": {
     "family": "photoreal",
     "platform": "instagram-post",
@@ -22,6 +40,8 @@
       "portrait",
       "instagram-post"
     ],
+    "prompt_word_count": 293,
+    "provenance": "Gemini-generated or Gemini-edited output; SynthID watermark expected for generated images.",
     "notes": [
       "Fast concept iteration for a photoreal editorial portrait without dense typography.",
       "single artwork social post"

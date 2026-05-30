@@ -8,7 +8,8 @@
     "claude": "CLAUDE.md",
     "gemini": "GEMINI.md",
     "readme": "README.md",
-    "site": "docs/index.html"
+    "site": "docs/index.html",
+    "openai": "agents/openai.yaml"
   },
   "targets": {
     "models": [
@@ -30,11 +31,16 @@
     "skills": "skills",
     "examples": "examples",
     "scripts": "scripts",
-    "docs": "docs"
+    "docs": "docs",
+    "agents": "agents",
+    "workflows": ".github/workflows"
   },
   "quality_gates": [
     "jsonschema validation",
     "example validation",
+    "runtime parity validation",
+    "Gemini request adapter validation",
+    "documentation asset validation",
     "static docs",
     "cross-agent entrypoints"
   ]

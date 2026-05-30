@@ -40,5 +40,6 @@ For prompt tasks:
 
 For repo changes:
 - edit the relevant file(s)
+- install dev dependencies before full validation
 - run validation if possible
 - update examples when behavior shifts

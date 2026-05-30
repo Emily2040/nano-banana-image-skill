@@ -1,11 +1,11 @@
 # Nano Banana Image Skill
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
-[![Validate](https://img.shields.io/badge/CI-validate__repo.py-brightgreen)](#validation)
+[![Validate](https://github.com/Emily2040/nano-banana-image-skill/actions/workflows/validate.yml/badge.svg)](https://github.com/Emily2040/nano-banana-image-skill/actions/workflows/validate.yml)
 [![Agent Skills](https://img.shields.io/badge/format-Agent%20Skills-blueviolet)](#compatibility-strategy)
 [![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-orange)](#github-pages-front-end)
 
-![Nano Banana Image Skill hero](docs/assets/hero.svg)
+![Nano Banana Image Skill hero](docs/assets/hero-imagegen.png)
 
 A production-grade, agent-portable image prompting skill for **Nano Banana Pro** and **Nano Banana 2 / V2** in the Gemini image family. It turns fuzzy creative requests into clean interview questions, grounded art direction, model-aware prompt stacks, edit-preservation deltas, and structured JSON payloads.
 
@@ -38,6 +38,8 @@ The skill is optimized for both **speed workflows** using Nano Banana 2 / V2 for
 
 The skill keeps model choice explicit in both the human-readable brief and the runtime JSON.
 
+**Gemini API note:** Google currently documents Gemini image generation through `generateContent`, with `gemini-3-pro-image-preview` for Nano Banana Pro, `gemini-3.1-flash-image-preview` for Nano Banana 2 / V2, and `gemini-2.5-flash-image` for the legacy fast path. Keep prompt text, image config, source references, and provenance notes separate in runtime payloads.
+
 ---
 
 ## Design goals
@@ -46,7 +48,7 @@ The skill keeps model choice explicit in both the human-readable brief and the r
 |---|---|
 | **Portable** | Canonical `SKILL.md` for skill-aware agents, plus `AGENTS.md`, `CLAUDE.md`, and `GEMINI.md` for ecosystem-specific loaders. |
 | **Modular** | Core prompting logic split into focused files under `skills/core/`. Style and output families live in their own registries. Schemas and examples separated cleanly. |
-| **Beautiful** | Includes a GitHub Pages front-end in `docs/` with custom SVG artwork and a polished landing page. |
+| **Beautiful** | Includes a GitHub Pages front-end in `docs/` with ImageGen raster artwork, SVG diagrams, and a polished landing page. |
 | **Deployable** | Ships with a validation script, example compiler, and GitHub Actions CI workflow. |
 
 ---
@@ -62,6 +64,8 @@ nano-banana-image-skill/
 ├─ AGENTS.md                 # Codex / AGENTS-style context
 ├─ CLAUDE.md                 # Claude Code memory
 ├─ GEMINI.md                 # Gemini CLI memory
+├─ agents/
+│  └─ openai.yaml            # Codex UI metadata
 ├─ LICENSE                   # Apache-2.0
 ├─ .gitignore
 ├─ Makefile
@@ -87,10 +91,11 @@ nano-banana-image-skill/
 │  └─ runtime/               # 5 matching runtime payloads
 ├─ scripts/
 │  ├─ validate_repo.py       # Repository validator
-│  └─ compile_runtime.py     # Authoring-to-runtime compiler
+│  ├─ compile_runtime.py     # Authoring-to-runtime compiler
+│  └─ compile_gemini_request.py # Runtime-to-Gemini request skeleton
 ├─ docs/
 │  ├─ index.html             # GitHub Pages landing page
-│  └─ assets/                # SVG artwork (hero, constellation, flow, etc.)
+│  └─ assets/                # Raster and SVG artwork (hero, infographic, flow, etc.)
 └─ .github/workflows/
    └─ validate.yml           # CI validation workflow
 ```
@@ -169,6 +174,12 @@ Five validated authoring + runtime example pairs live in `examples/`.
 
 ## Validation
 
+### Install dev dependencies
+
+```bash
+python -m pip install -r requirements-dev.txt
+```
+
 ### Run the repository validator
 
 ```bash
@@ -180,6 +191,13 @@ python scripts/validate_repo.py
 ```bash
 python scripts/compile_runtime.py examples/authoring/poster-edo-festival-text.json \
   -o /tmp/poster.runtime.json
+```
+
+### Compile a Gemini request skeleton
+
+```bash
+python scripts/compile_gemini_request.py examples/runtime/poster-edo-festival-text.json \
+  -o /tmp/poster.gemini-request.json
 ```
 
 ### Make targets
@@ -198,7 +216,7 @@ This repository includes a static landing page in `docs/`. To publish it:
 1. Push the repo to GitHub.
 2. Open **Settings > Pages**.
 3. Choose **Deploy from a branch**.
-4. Select the `main` branch and the `/docs` folder.
+4. Select the `master` branch and the `/docs` folder, or `main` if you rename the default branch.
 5. Save.
 
 A `.nojekyll` file is included to keep the static assets untouched.

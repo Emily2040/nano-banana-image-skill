@@ -31,8 +31,8 @@
         ]
       },
       "edit-delta": {
-        "target_words": 120,
-        "max_words": 200,
+        "target_words": 220,
+        "max_words": 320,
         "cut_order": [
           "restate unchanged scene",
           "duplicate preserve phrases",
@@ -51,8 +51,8 @@
         ]
       },
       "generate-complex": {
-        "target_words": 180,
-        "max_words": 280,
+        "target_words": 210,
+        "max_words": 320,
         "cut_order": [
           "background lore",
           "secondary lighting flourishes",
